@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Regulations.Models.Regulation>
+@{
+    //ViewData["Title"] = "Список нормативной документации";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>СП</title>
+</head>
+<body>
+    <h3>Нормы</h3>
+    <table>
+        <tr>
+            <td>Название</td>
+            <td>Дата</td>            
+        </tr>
+        @foreach (var reg in Model)
+        {
+            <tr>
+                <td>@reg.ShortName</td>
+                <td>@reg.Added</td>                
+            </tr>
+        }
+    </table>
+</body>
+</html>
