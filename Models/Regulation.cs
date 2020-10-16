@@ -12,9 +12,10 @@ namespace Regulations.Models
         public string FullName { get; set; }
         public Uri Link { get; set; }
         public DateTime Added { get; set; }
-        //public User User { get; set; }
+        //public User Author { get; set; }
         public int UserId { get; set; }
 
+        
 
     }
 }

@@ -1,0 +1,46 @@
+﻿@model Regulations.Models.Regulation
+@{
+    //ViewData["Title"] = "Список нормативной документации";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Regulation Edition Page</title>
+</head>
+<body>
+    
+    <div>
+        <h3>Добавление записей в БД.</h3>
+        <form method="POST">
+            <input type="hidden" value="@Model.Id" name="Id"/>
+            <input type="hidden" value="@Model.Added" name="Added"/>
+            <table>
+                <tr>
+                    <td>Краткое наименование нормативной документации</td>
+                    <td><input type="text" name = "ShortName"/></td>
+                </tr>
+                <tr>
+                    <td>Полное наименование нормативной документации</td>
+                    <td><input type="text" name = "FullName"/></td>
+                </tr>
+                <tr>
+                    <td>Введите ссылку на документацию</td>
+                    <td><input type="text" name = "ShortName"/></td>
+                </tr>
+                <tr>
+                    <td>Полное наименование нормативной документации</td>
+                    <td><input type="text" name = "Link"/></td>
+                </tr>                
+                <tr>
+                    <td>Ваш Id:</td>
+                    <td><input type="text" name = "UserId"/></td>
+                </tr>  
+                <tr><td><input type="submit" value="Отправить"></td><td></td></tr>              
+            </table>
+        </form>
+    </div>
+    
+</body>
+</html>
