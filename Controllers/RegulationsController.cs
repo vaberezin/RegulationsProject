@@ -45,9 +45,7 @@ namespace Regulations.Controllers
             }
             var reg = db.Regulations.Where<Regulation>(reg => reg.Id == id).FirstOrDefault();
             return View(reg);
-        }
-
-        
+        }        
 
         [HttpPost]
         public string UpdateRegulation(Regulation regulation){
@@ -56,13 +54,30 @@ namespace Regulations.Controllers
             return "Данные успешно обновлены.";
         }
 
-        [HttpDelete]
-        public string Delete(Regulation regulation){
-            db.Regulations.Remove(regulation);
-            db.SaveChanges();
-            return "Данные успешно Удалены.";
+        //[HttpPost]
+        //public string DeleteRegulation(int id){
+        //    return "Данные успешно удалены.";
+        //    Regulation regToDelete = db.Regulations.Find(id);
+        //    db.Regulations.Remove(regToDelete);
+        //    db.SaveChanges();
+        //    //return "Данные успешно удалены.";
+        //}
+
+        [HttpPost]
+        public string DeleteRegulation(Regulation regulation) //void?! bad, ok let it be...
+        {
+            return DeleteRegulation(regulation.Id);            
         }
 
-        
+
+        public string DeleteRegulation(int id)
+        {            
+            Regulation regToDelete = db.Regulations.Find(id);
+            db.Regulations.Remove(regToDelete);
+            db.SaveChanges();
+            return "Данные успешно удалены.";
+        }
+
+
     }
 }

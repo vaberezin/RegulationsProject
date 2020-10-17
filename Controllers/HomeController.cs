@@ -20,8 +20,6 @@ namespace Regulations.Controllers
         public IActionResult Index()
         {
             return View(db.Regulations.ToList());
-        }
-
-        
+        }        
     }
 }

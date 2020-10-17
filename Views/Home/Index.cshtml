@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Regulations.Models.Regulation>
+﻿@Model IEnumerable<Regulations.Models.Regulation>
 @{
     //ViewData["Title"] = "Список нормативной документации";
     Layout = null;
@@ -18,17 +18,31 @@
         </tr>
         @foreach (var reg in Model)
         {
-            <tr>
-                <td>@reg.ShortName</td>
-                <td>@reg.Added</td>
-                <td><a href ="~/Regulations/UpdateRegulation/@reg.Id/" name="UpdateRegLink" type="text/html">Изменение записи</a></td>
-            </tr>
+    <tr>
+        <td>@reg.ShortName</td>
+        <td>@reg.Added</td>
+        <td><a href="~/Regulations/UpdateRegulation/@reg.Id/" name="UpdateRegLink" type="text/html">Изменение записи</a></td>        
+        <td>
+            <form method="post">
+                <input type="hidden" value="@reg.Id" name="Id" />
+                <input type="hidden" value="@reg.Added" name="Added" />
+                <input type="hidden" value="@reg.ShortName" name="ShortName" />
+                <input type="hidden" value="@reg.FullName" name="FullName" />
+                <input type="hidden" value="@reg.Link" name="Link" />
+                <input type="hidden" value="@reg.UserId" name="UserId" />
+                <input type="submit" value="Удалить" href="~/Regulations/DeleteRegulation/@reg.Id" />
+            </form>            
+        </td>
+        <td></td>
+
+    </tr>
         }
-        <tr>
-            <td></td>
-            <td></td>
-            <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
-        </tr>
+    <tr>
+        <td></td>        
+        <td></td>
+        <td></td>
+        <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
+    </tr>
     </table>
 </body>
 </html>
