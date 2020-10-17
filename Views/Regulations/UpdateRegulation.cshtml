@@ -13,7 +13,7 @@
     
     <div>
         <h3>Редактирование записей БД.</h3>
-        <form method="POST">
+        <form method="post">
             <input type="hidden" value="@Model.Id" name="Id"/>
             <input type="hidden" value="@Model.Added" name="Added"/>
             <table>
@@ -27,13 +27,13 @@
                 </tr>
                 <tr>
                     <td>Введите ссылку на документацию</td>
-                    <td><input type="text" name = "ShortName" placeholder="@Model.Link.ToString()"/></td>
+                    <td><input type="text" name = "ShortName" placeholder="@Model.Link"/></td>
                 </tr>                
                 <tr>
                     <td>Ваш Id:</td>
                     <td><input type="text" name = "UserId"/></td>
                 </tr>  
-                <tr><td><input type="submit" value="Отправить"></td><td></td></tr>              
+                <tr><td><input type="submit"  value="Отправить" href="~/Regulations/PutRegulation/"></td><td></td></tr>              
             </table>
         </form>
     </div>    

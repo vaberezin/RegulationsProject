@@ -22,14 +22,22 @@ namespace Regulations.Controllers
         
         
         [HttpGet]
-        public IActionResult AddRegulation(int? id){
-            if (id == null){
-                return RedirectToAction("Index");
-            }
-            var reg = db.Regulations.Where<Regulation>(reg => reg.Id == id).FirstOrDefault();
+        public IActionResult AddRegulation(){
+
+            Regulation reg = new Regulation(); //create instance for default model binding
             return View(reg);
+            //return View();
         }
-        
+
+        [HttpPost]
+        public string AddRegulation(Regulation regulation)
+        {
+
+            db.Regulations.Add(regulation);
+            db.SaveChanges();
+            return "Запись успешно добавлена в Базу данных";
+        }
+
         [HttpGet]
         public IActionResult UpdateRegulation(int? id){
             if (id == null){
@@ -39,16 +47,10 @@ namespace Regulations.Controllers
             return View(reg);
         }
 
-        [HttpPost]
-        public string Post(Regulation regulation) //form sending
-        {
-            db.Regulations.Add(regulation);
-            db.SaveChanges();
-            return "Данные успешно добавлены.";
-        }
+        
 
-        [HttpPut]
-        public string Put(Regulation regulation){
+        [HttpPost]
+        public string UpdateRegulation(Regulation regulation){
             db.Regulations.Update(regulation);
             db.SaveChanges();
             return "Данные успешно обновлены.";

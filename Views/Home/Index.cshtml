@@ -20,9 +20,15 @@
         {
             <tr>
                 <td>@reg.ShortName</td>
-                <td>@reg.Added</td>                
+                <td>@reg.Added</td>
+                <td><a href ="~/Regulations/UpdateRegulation/@reg.Id/" name="UpdateRegLink" type="text/html">Изменение записи</a></td>
             </tr>
         }
+        <tr>
+            <td></td>
+            <td></td>
+            <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
+        </tr>
     </table>
 </body>
 </html>
