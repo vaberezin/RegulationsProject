@@ -21,18 +21,8 @@
     <tr>
         <td>@reg.ShortName</td>
         <td>@reg.Added</td>
-        <td><a href="~/Regulations/UpdateRegulation/@reg.Id/" name="UpdateRegLink" type="text/html">Изменение записи</a></td>        
-        <td>
-            <form method="post">
-                <input type="hidden" value="@reg.Id" name="Id" />
-                <input type="hidden" value="@reg.Added" name="Added" />
-                <input type="hidden" value="@reg.ShortName" name="ShortName" />
-                <input type="hidden" value="@reg.FullName" name="FullName" />
-                <input type="hidden" value="@reg.Link" name="Link" />
-                <input type="hidden" value="@reg.UserId" name="UserId" />
-                <input type="submit" value="Удалить" href="~/Regulations/DeleteRegulation/@reg.Id" />
-            </form>            
-        </td>
+        <td><a href="~/Regulations/UpdateRegulation/@reg.Id/" name="UpdateRegLink" type="text/html">Изменение записи</a></td>
+        <td><a href="~/Regulations/DeleteRegulation/@reg.Id/" name="DeleteRegLink" type="application/x-www-form-urlencoded">Deleting записи</a></td>
         <td></td>
 
     </tr>

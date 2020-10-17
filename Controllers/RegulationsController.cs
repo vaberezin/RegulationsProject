@@ -63,10 +63,16 @@ namespace Regulations.Controllers
         //    //return "Данные успешно удалены.";
         //}
 
-        [HttpPost]
+        [HttpDelete]
         public string DeleteRegulation(Regulation regulation) //void?! bad, ok let it be...
         {
-            return DeleteRegulation(regulation.Id);            
+            //return DeleteRegulation(regulation.Id);
+            //Regulation regToDelete = db.Regulations.Find(id);
+            var reg = db.Regulations.Where<Regulation>(r => r.Id == regulation.Id).FirstOrDefault();
+            db.Regulations.Remove(reg);
+            db.SaveChanges();
+            return "Данные успешно удалены.";
+
         }
 
 
