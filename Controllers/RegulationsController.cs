@@ -54,15 +54,6 @@ namespace Regulations.Controllers
             return "Данные успешно обновлены.";
         }
 
-        //[HttpPost]
-        //public string DeleteRegulation(int id){
-        //    return "Данные успешно удалены.";
-        //    Regulation regToDelete = db.Regulations.Find(id);
-        //    db.Regulations.Remove(regToDelete);
-        //    db.SaveChanges();
-        //    //return "Данные успешно удалены.";
-        //}
-
         [HttpDelete]
         public string DeleteRegulation(Regulation regulation) //void?! bad, ok let it be...
         {

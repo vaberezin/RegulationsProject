@@ -13,29 +13,29 @@
     
     <div>
         <h3>Редактирование записей БД.</h3>
-        <form method="post">
-            <input type="hidden" value="@Model.Id" name="Id"/>
-            <input type="hidden" value="@DateTime.Now" name="Added"/>
+        <form asp-action="UpdateRegulation" asp-controller="Regulations" asp-antiforgery="true" method="post">
+            <input type="hidden" asp-for="Id" value="@Model.Id" />
+            <input type="hidden" asp-for="Added" value="@DateTime.Now" />
             <table>
                 <tr>
                     <td>Краткое наименование нормативной документации</td>
-                    <td><input type="text" name = "ShortName" placeholder="@Model.ShortName"/></td>
+                    <td><input type="text" asp-for="ShortName" value="@Model.ShortName" /></td>
                 </tr>
                 <tr>
                     <td>Полное наименование нормативной документации</td>
-                    <td><input type="text" name = "FullName" placeholder="@Model.FullName"/></td>
+                    <td><input type="text" asp-for="FullName" value="@Model.FullName" /></td>
                 </tr>
                 <tr>
                     <td>Введите ссылку на документацию</td>
-                    <td><input type="text" name = "ShortName" placeholder="@Model.Link"/></td>
-                </tr>                
+                    <td><input type="text" asp-for="Link" value="@Model.Link" /></td>
+                </tr>
                 <tr>
                     <td>Ваш Id:</td>
-                    <td><input type="text" name = "UserId"/></td>
-                </tr>  
-                <tr><td><input type="submit"  value="Отправить" href="~/Regulations/PutRegulation/"></td><td></td></tr>              
+                    <td><input type="text" asp-for="UserId" /></td>
+                </tr>
+                <tr><td><input type="submit" value="Отправить изменения" /></td><td></td></tr>
             </table>
-        </form>
+        </form>        
     </div>    
 </body>
 </html>
