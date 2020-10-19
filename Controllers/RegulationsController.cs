@@ -30,12 +30,12 @@ namespace Regulations.Controllers
         }
 
         [HttpPost]
-        public string AddRegulation(Regulation regulation)
+        public IActionResult AddRegulation(Regulation regulation)
         {
 
             db.Regulations.Add(regulation);
             db.SaveChanges();
-            return "Запись успешно добавлена в Базу данных";
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -48,24 +48,20 @@ namespace Regulations.Controllers
         }        
 
         [HttpPost]
-        public string UpdateRegulation(Regulation regulation){
+        public IActionResult UpdateRegulation(Regulation regulation){
             db.Regulations.Update(regulation);
             db.SaveChanges();
-            return "Данные успешно обновлены.";
+            return RedirectToAction("Index", "Home");        
         }
 
         [HttpDelete]
-        public string DeleteRegulation(Regulation regulation) //void?! bad, ok let it be...
-        {
-            //return DeleteRegulation(regulation.Id);
-            //Regulation regToDelete = db.Regulations.Find(id);
+        public IActionResult DeleteRegulation(Regulation regulation) //void?! bad, ok let it be...
+        {            
             var reg = db.Regulations.Where<Regulation>(r => r.Id == regulation.Id).FirstOrDefault();
             db.Regulations.Remove(reg);
             db.SaveChanges();
-            return "Данные успешно удалены.";
-
+            return RedirectToAction("Index", "Home");
         }
-
 
         public string DeleteRegulation(int id)
         {            
