@@ -21,8 +21,8 @@
     <tr>
         <td>@reg.ShortName</td>
         <td>@reg.Added</td>
-        <td><a href="~/Regulations/UpdateRegulation/@reg.Id/" name="UpdateRegLink" type="text/html">Изменение записи</a></td>
-        <td><a href="~/Regulations/DeleteRegulation/@reg.Id/" name="DeleteRegLink" type="application/x-www-form-urlencoded">Удаление записи</a></td>
+        <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id" >Изменение записи</a></td>
+        <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id" >Удаление записи</a></td>        
         <td></td>
 
     </tr>
