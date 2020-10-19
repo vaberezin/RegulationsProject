@@ -15,7 +15,7 @@
         <h3>Редактирование записей БД.</h3>
         <form method="post">
             <input type="hidden" value="@Model.Id" name="Id"/>
-            <input type="hidden" value="@Model.Added" name="Added"/>
+            <input type="hidden" value="@DateTime.Now" name="Added"/>
             <table>
                 <tr>
                     <td>Краткое наименование нормативной документации</td>

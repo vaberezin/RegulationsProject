@@ -7,9 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
+using Microsoft.AspNetCore.Http;
 
 namespace Regulations.Controllers
 {
+    public class Person
+        {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        }
     public class HomeController : Controller
     {
         RegulationContext db;
@@ -20,6 +26,20 @@ namespace Regulations.Controllers
         public IActionResult Index()
         {
             return View(db.Regulations.ToList());
-        }        
-    }
-}
+        }       
+
+         public void GetHeaders()
+        {
+            string table = "";
+            foreach (var header in Request.Headers){
+                table += $"<tr><td>{header.Key}</td><td>{header.Value}</td></tr>";
+            }
+            Response.WriteAsync($"<table>{table}</table>");
+            
+            
+        }
+    
+    }}
+        
+
+
