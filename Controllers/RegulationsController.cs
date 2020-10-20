@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
+using System.ComponentModel.DataAnnotations;
 
 namespace Regulations.Controllers
 {
@@ -32,10 +33,13 @@ namespace Regulations.Controllers
         [HttpPost]
         public IActionResult AddRegulation(Regulation regulation)
         {
-
-            db.Regulations.Add(regulation);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            if(ModelState.IsValid){
+                db.Regulations.Add(regulation);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            return View(regulation);
+            
         }
 
         [HttpGet]
@@ -49,9 +53,12 @@ namespace Regulations.Controllers
 
         [HttpPost]
         public IActionResult UpdateRegulation(Regulation regulation){
+            if(ModelState.IsValid){
             db.Regulations.Update(regulation);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Home");        
+            db.SaveChanges();            
+            return RedirectToAction("Index", "Home");
+            }
+            return View(regulation);       
         }
 
         [HttpDelete]
@@ -64,7 +71,7 @@ namespace Regulations.Controllers
         }
 
         public string DeleteRegulation(int id)
-        {            
+        {                       
             Regulation regToDelete = db.Regulations.Find(id);
             db.Regulations.Remove(regToDelete);
             db.SaveChanges();

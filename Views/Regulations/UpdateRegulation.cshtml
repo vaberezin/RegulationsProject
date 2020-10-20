@@ -8,6 +8,12 @@
 <html>
 <head>
     <title>Regulation Edition Page</title>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script><!--подключение jquery-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/css/site.css" />
+    
+    
 </head>
 <body>
     
@@ -20,22 +26,27 @@
                 <tr>
                     <td>Краткое наименование нормативной документации</td>
                     <td><input type="text" asp-for="ShortName" value="@Model.ShortName" /></td>
+                    <td><span asp-validation-for="ShortName"></span></td>
                 </tr>
                 <tr>
                     <td>Полное наименование нормативной документации</td>
                     <td><input type="text" asp-for="FullName" value="@Model.FullName" /></td>
+                    <td><span asp-validation-for="FullName"></span></td>
                 </tr>
                 <tr>
                     <td>Введите ссылку на документацию</td>
                     <td><input type="text" asp-for="Link" value="@Model.Link" /></td>
+                    <td><span asp-validation-for="Link"></span></td>
                 </tr>
                 <tr>
                     <td>Ваш Id:</td>
-                    <td><input type="text" asp-for="UserId" /></td>
+                    <td><input type="number" asp-for="UserId" /></td>
+                    <td><span asp-validation-for="UserId"></span></td>
                 </tr>
                 <tr><td><input type="submit" value="Отправить изменения" /></td><td></td></tr>
             </table>
         </form>        
-    </div>    
+    </div>   
+    
 </body>
 </html>
