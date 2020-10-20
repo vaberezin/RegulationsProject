@@ -16,7 +16,7 @@ namespace Regulations.Models
         [StringLength (25, MinimumLength = 1, ErrorMessage = "Длина строки должна быть от 2 до 25 символов")]
         public string FullName { get; set; }
         [Required (ErrorMessage = "Не указана ссылка на норму")]
-        [Url (ErrorMessage = "Это не ссылка!")]
+        [Url (ErrorMessage = "Это не ссылка!")]        
         public string Link { get; set; }
         [Required] 
         public DateTime Added { get; set; }
