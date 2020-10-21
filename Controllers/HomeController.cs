@@ -11,12 +11,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Regulations.Controllers
 {
-    public class Person
-        {
-        public string Name { get; set; }
-        public int Age { get; set; }
-        }
-    public class HomeController : Controller
+        public class HomeController : Controller
     {
         RegulationContext db;
         public HomeController(RegulationContext context)
