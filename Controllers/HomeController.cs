@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Regulations.Controllers
 {
@@ -18,6 +19,7 @@ namespace Regulations.Controllers
         {
             db = context;
         }
+        [Authorize]
         public IActionResult Index()
         {
             return View(db.Regulations.ToList());
