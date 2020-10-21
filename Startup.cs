@@ -1,16 +1,18 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
-using System.IO;
+
 
 namespace Regulations
 {
@@ -28,6 +30,12 @@ namespace Regulations
             string connection = Configuration.GetConnectionString("Default");
             services.AddDbContext<RegulationContext>(options => 
                     options.UseMySql(Configuration.GetConnectionString("Default")));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                    .AddCookie(options => //cookieAuthenticationOptions)
+                    {
+                        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    });
             services.AddControllersWithViews();
         }
                 
