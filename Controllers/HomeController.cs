@@ -12,14 +12,16 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Regulations.Controllers
 {
+        [Authorize]
         public class HomeController : Controller
     {
         RegulationContext db;
+        
         public HomeController(RegulationContext context)
         {
             db = context;
         }
-        [Authorize]
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(db.Regulations.ToList());
