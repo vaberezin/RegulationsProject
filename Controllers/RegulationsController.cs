@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
@@ -11,6 +12,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Regulations.Controllers
 {
+    [Authorize (Roles = "admin, user") ]
     public class RegulationsController : Controller
     {
         RegulationContext db;
@@ -23,6 +25,7 @@ namespace Regulations.Controllers
         
         
         [HttpGet]
+        
         public IActionResult AddRegulation(){
 
             Regulation reg = new Regulation(); //create instance for default model binding
@@ -42,6 +45,7 @@ namespace Regulations.Controllers
             
         }
 
+        [Authorize (Roles = "admin")]
         [HttpGet]
         public IActionResult UpdateRegulation(int? id){
             if (id == null){
@@ -49,8 +53,9 @@ namespace Regulations.Controllers
             }
             var reg = db.Regulations.Where<Regulation>(reg => reg.Id == id).FirstOrDefault();
             return View(reg);
-        }        
+        } 
 
+        [Authorize (Roles = "admin")]
         [HttpPost]
         public IActionResult UpdateRegulation(Regulation regulation){
             if(ModelState.IsValid){
@@ -61,6 +66,7 @@ namespace Regulations.Controllers
             return View(regulation);       
         }
 
+        [Authorize (Roles = "admin")]
         [HttpDelete]
         public IActionResult DeleteRegulation(Regulation regulation) //void?! bad, ok let it be...
         {            
@@ -70,6 +76,7 @@ namespace Regulations.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize (Roles = "admin")]
         public string DeleteRegulation(int id)
         {                       
             Regulation regToDelete = db.Regulations.Find(id);
