@@ -32,9 +32,10 @@ namespace Regulations.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model){
             if(ModelState.IsValid){
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+                User user = await db.Users.Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password); //finding user in db
                 if (user != null){
-                    await Authenticate(model.Email);
+                    await Authenticate(user);
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("","Неправильный логин и(или) пароль.");
@@ -52,11 +53,19 @@ namespace Regulations.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model){
             if(ModelState.IsValid){
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email); //adding new user to database
-                if(user == null){
+                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email); //checking if login already exists
+                 //adding new user to database
+                if(user == null){    //if not exists 
+                    user = new User{ Email = model.Email, Password = model.Password};
+                    //attach role to user. Mean, if u register through the form, you can only be 'user'. Admin roles 
+                    //add only manually.
+                    Role userRole = await db.Roles.FirstOrDefaultAsync(role => role.Name == "user");
+                    if(userRole != null){
+                        user.Role = userRole;
+                    }
                     db.Users.Add(new User {Email = model.Email, Password = model.Password});
                     await db.SaveChangesAsync();
-                    await Authenticate(model.Email); //authentication
+                    await Authenticate(user); //authentication   
                     return RedirectToAction("Index", "Home");
                 }
                     else
@@ -69,15 +78,17 @@ namespace Regulations.Controllers
             
         }
 
-        private async Task Authenticate(string userName){
-            //create claim
+        private async Task Authenticate(User user){
+            
+            //create list of claims
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),   //defaultname claim
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role?.Name) //defaultrole claim                 
             };
             //create ClaimsIdentity object
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id)); //creating cookies
         }
 
         public async Task<IActionResult> Logout(){
