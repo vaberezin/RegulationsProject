@@ -34,8 +34,8 @@ namespace Regulations
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                     .AddCookie(options => //cookieAuthenticationOptions)
                     {
-                        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
-                        options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");                        
+                        options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");
                     });
             services.AddControllersWithViews();
         }

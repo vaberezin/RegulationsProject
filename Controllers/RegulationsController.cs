@@ -11,7 +11,7 @@ using Regulations.Models.DatabaseContexts;
 using System.ComponentModel.DataAnnotations;
 
 namespace Regulations.Controllers
-{
+{   
     [Authorize (Roles = "admin, user") ]
     public class RegulationsController : Controller
     {
@@ -68,7 +68,7 @@ namespace Regulations.Controllers
 
         [Authorize (Roles = "admin")]
         [HttpDelete]
-        public IActionResult DeleteRegulation(Regulation regulation) //void?! bad, ok let it be...
+        public IActionResult DeleteRegulation(Regulation regulation) 
         {            
             var reg = db.Regulations.Where<Regulation>(r => r.Id == regulation.Id).FirstOrDefault();
             db.Regulations.Remove(reg);
