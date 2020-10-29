@@ -9,6 +9,8 @@ using Microsoft.Extensions.Logging;
 using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
 
 namespace Regulations.Controllers
 {
@@ -27,7 +29,7 @@ namespace Regulations.Controllers
         [HttpGet]
         
         public IActionResult AddRegulation(){
-
+            
             Regulation reg = new Regulation(); //create instance for default model binding
             return View(reg);
             //return View();
@@ -45,9 +47,17 @@ namespace Regulations.Controllers
             
         }
 
-        [Authorize (Roles = "admin")]
+        [Authorize (Roles = "admin")] //+"user"
         [HttpGet]
         public IActionResult UpdateRegulation(int? id){
+
+
+            
+
+            if()
+
+
+
             if (id == null){
                 return RedirectToAction("Index");
             }
@@ -85,6 +95,19 @@ namespace Regulations.Controllers
             return "Данные успешно удалены.";
         }
 
-
+        private async Task<bool> ActionPermission(int id) //regulation id from get request
+        {
+            Regulation reg = await db.Regulations.Include(u => u.User).Where(r => r.Id == id).FirstOrDefaultAsync();
+            string RecordCreator = reg.User?.Email;
+            string CurrentUser = HttpContext.User.Identity.Name;
+            if(RecordCreator == CurrentUser)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
