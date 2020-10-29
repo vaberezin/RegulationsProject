@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
 
 namespace Regulations.Models
 {
@@ -23,7 +24,10 @@ namespace Regulations.Models
         //public User Author { get; set; }
         [Required (ErrorMessage = "Не указан Ваш Id")] 
         [Range (1,1000, ErrorMessage = "Сударь, не лукавьте ;), это не Ваш Id")]
-        public int UserId { get; set; }
+
+        public User User { get; set; } //navigational prop
+
+        public int UserId { get; set; } //foreign key
 
         
 
