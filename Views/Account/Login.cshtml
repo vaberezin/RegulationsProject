@@ -12,7 +12,11 @@
     <title>Login</title>
 </head>
 <body>
-    <input type="submit" value="Выйти из текущего профиля" asp-action="Logout">
+    
+    <form action="get" >
+        <button class="btn-danger" type="submit" asp-action="Logout" asp-controller="Account">Выйти</button>
+    </form>
+
     <h2>Страница входа на сайт</h2>
 
     <a asp-action="Register" asp-controller="Account">Регистрация</a>
