@@ -51,18 +51,19 @@ namespace Regulations.Controllers
         [HttpGet]
         public IActionResult UpdateRegulation(int? id){
 
-
-            
-
-            if()
-
-
-
-            if (id == null){
-                return RedirectToAction("Index");
+            if (ActionPermission(id).Result)
+            {
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                var reg = db.Regulations.Where<Regulation>(reg => reg.Id == id).FirstOrDefault();
+                return View(reg);
             }
-            var reg = db.Regulations.Where<Regulation>(reg => reg.Id == id).FirstOrDefault();
-            return View(reg);
+            else
+            {
+                return Forbid(); //change to view
+            }
         } 
 
         [Authorize (Roles = "admin")]
@@ -95,7 +96,7 @@ namespace Regulations.Controllers
             return "Данные успешно удалены.";
         }
 
-        private async Task<bool> ActionPermission(int id) //regulation id from get request
+        private async Task<bool> ActionPermission(int? id) //regulation id from get request
         {
             Regulation reg = await db.Regulations.Include(u => u.User).Where(r => r.Id == id).FirstOrDefaultAsync();
             string RecordCreator = reg.User?.Email;
