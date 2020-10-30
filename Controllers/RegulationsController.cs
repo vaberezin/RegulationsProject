@@ -28,13 +28,11 @@ namespace Regulations.Controllers
         
         [HttpGet]
         
-        public IActionResult AddRegulation(){
-            
+        public IActionResult AddRegulation()
+        {            
             Regulation reg = new Regulation(); //create instance for default model binding
             return View(reg);
-            //return View();
 
-            
         }
 
         [HttpPost]
@@ -111,7 +109,7 @@ namespace Regulations.Controllers
             Regulation reg = await db.Regulations.Include(u => u.User).Where(r => r.Id == id).FirstOrDefaultAsync();
             string RecordCreator = reg.User?.Email;
             string CurrentUser = HttpContext.User.Identity.Name;
-            if(RecordCreator == CurrentUser)
+            if(CurrentUser == RecordCreator || HttpContext.User.IsInRole("admin")) //works 
             {
                 return true;
             }
