@@ -1,4 +1,9 @@
 ﻿@model Regulations.Models.Regulation
+@using Microsoft.AspNetCore.Mvc
+@using Microsoft.AspNetCore.Authorization
+{
+    
+}
 @{
     //ViewData["Title"] = "Список нормативной документации";
     Layout = null;
@@ -17,10 +22,13 @@
 <body>
     
     <div>
+        <span>@User.Identity.Name</span>
         <h3>Добавление записей в БД.</h3>
         <form asp-action="AddRegulation" asp-controller="Regulations" asp-antiforgery="true" method="post">
             <input type="hidden" asp-for="Id" value="@Model.Id" />
             <input type="hidden" asp-for="Added" value="@DateTime.Now" />
+            <input type="hidden" asp-for="User.Email" value="@User.Identity.Name" />
+            
             <table>
                 <tr>
                     <td>Краткое наименование нормативной документации</td>
@@ -40,7 +48,7 @@
                 <tr>
                     <td>Ваш Id:</td>
                     <td><input type="number" asp-for="UserId" /></td>
-                    <td><span asp-validation-for="UserId"></span></td>
+                    <td><span asp-validation-for="UserId" value=""></span></td>
                 </tr>
                 <tr><td><input type="submit" value="Отправить изменения" /></td><td></td></tr>
             </table>
