@@ -33,6 +33,8 @@ namespace Regulations.Controllers
             Regulation reg = new Regulation(); //create instance for default model binding
             return View(reg);
             //return View();
+
+            
         }
 
         [HttpPost]
@@ -47,7 +49,7 @@ namespace Regulations.Controllers
             
         }
 
-        [Authorize (Roles = "admin")] //+"user"
+        
         [HttpGet]
         public IActionResult UpdateRegulation(int? id){
 
@@ -62,11 +64,11 @@ namespace Regulations.Controllers
             }
             else
             {
-                return Forbid(); //change to view
+                return Forbid();
             }
         } 
 
-        [Authorize (Roles = "admin")]
+        
         [HttpPost]
         public IActionResult UpdateRegulation(Regulation regulation){
             if(ModelState.IsValid){
@@ -77,9 +79,9 @@ namespace Regulations.Controllers
             return View(regulation);       
         }
 
-        [Authorize (Roles = "admin")]
+        
         [HttpDelete]
-        public IActionResult DeleteRegulation(Regulation regulation) //void?! bad, ok let it be...
+        public IActionResult DeleteRegulation(Regulation regulation) 
         {            
             var reg = db.Regulations.Where<Regulation>(r => r.Id == regulation.Id).FirstOrDefault();
             db.Regulations.Remove(reg);
@@ -87,15 +89,23 @@ namespace Regulations.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize (Roles = "admin")]
-        public string DeleteRegulation(int id)
-        {                       
+        
+        public IActionResult DeleteRegulation(int id)
+        {       
+            if (ActionPermission(id).Result)
+            {                
             Regulation regToDelete = db.Regulations.Find(id);
             db.Regulations.Remove(regToDelete);
             db.SaveChanges();
-            return "Данные успешно удалены.";
+            return Content("Данные успешно удалены.");
+            }
+            else
+            {
+                return Forbid();
+            }
         }
 
+        #region 
         private async Task<bool> ActionPermission(int? id) //regulation id from get request
         {
             Regulation reg = await db.Regulations.Include(u => u.User).Where(r => r.Id == id).FirstOrDefaultAsync();
@@ -110,5 +120,9 @@ namespace Regulations.Controllers
                 return false;
             }
         }
+
+        
+
+        #endregion
     }
 }

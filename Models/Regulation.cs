@@ -9,6 +9,8 @@ namespace Regulations.Models
 {
     public class Regulation
     {
+
+
         [Required] 
         public int Id { get; set; }
         [Required (ErrorMessage =  "Не указан шифр нормы")] 
@@ -23,10 +25,11 @@ namespace Regulations.Models
         public DateTime Added { get; set; }
         //public User Author { get; set; }
         [Required (ErrorMessage = "Не указан Ваш Id")] 
-        [Range (1,1000, ErrorMessage = "Сударь, не лукавьте ;), это не Ваш Id")]
 
+        
         public User User { get; set; } //navigational prop
 
+        [Range (1,1000, ErrorMessage = "Сударь, не лукавьте ;), это не Ваш Id")]
         public int UserId { get; set; } //foreign key
 
         

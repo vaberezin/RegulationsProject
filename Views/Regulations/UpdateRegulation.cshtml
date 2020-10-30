@@ -22,6 +22,8 @@
         <form asp-action="UpdateRegulation" asp-controller="Regulations" asp-antiforgery="true" method="post">
             <input type="hidden" asp-for="Id" value="@Model.Id" />
             <input type="hidden" asp-for="Added" value="@DateTime.Now" />
+            <input type="hidden" asp-for="User.Email" value="@User.Identity.Name" />
+
             <table>
                 <tr>
                     <td>Краткое наименование нормативной документации</td>
@@ -40,13 +42,14 @@
                 </tr>
                 <tr>
                     <td>Ваш Id:</td>
-                    <td><input type="number" asp-for="UserId" /></td>
+                    <td><input type="number" asp-for="UserId" value="" /></td>
                     <td><span asp-validation-for="UserId"></span></td>
                 </tr>
                 <tr><td><input type="submit" value="Отправить изменения" /></td><td></td></tr>
             </table>
         </form>        
     </div>   
+    
     
 </body>
 </html>
