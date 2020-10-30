@@ -14,27 +14,30 @@
     <table>
         <tr>
             <td>Название</td>
-            <td>Дата</td>            
+            <td>Дата</td>
         </tr>
         @foreach (var reg in Model)
         {
-    <tr>
-        <td>@reg.ShortName</td>
-        <td>@reg.Added</td>
-        <td><a href="@reg.Link">Ссылка</a></td>
-        <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Изменение записи</a></td>
-        <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Удаление записи</a></td>
-        <td></td>
+            <tr>
+                <td>@reg.ShortName</td>
+                <td>@reg.Added</td>
+                <td><a href="@reg.Link">Ссылка</a></td>
+                <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Изменение записи</a></td>
+                <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Удаление записи</a></td>
+                <td></td>
 
-    </tr>
+            </tr>
         }
-    <tr>
-        <td></td>        
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
-    </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
+        </tr>
     </table>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>

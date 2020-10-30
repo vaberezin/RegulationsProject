@@ -14,8 +14,8 @@
 <body>
     <h2>Страница регистрации учетных записей</h2>
 
-    
-    <form asp-action="Register" asp-controller="Account" method="post" asp-antiforgery="true" >
+
+    <form asp-action="Register" asp-controller="Account" method="post" asp-antiforgery="true">
         <div class="validation" asp-validation-summary="ModelOnly"></div>
         <div>
             <div class="form-group">
@@ -38,6 +38,17 @@
             </div>
         </div>
     </form>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"
+            asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"
+            asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+    </script>
 </body>
 </html>
 

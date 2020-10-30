@@ -16,7 +16,7 @@ namespace Regulations.Models
         [Required (ErrorMessage =  "Не указан шифр нормы")] 
         public string ShortName { get; set; }
         [Required (ErrorMessage = "Не указано наименование нормы")] 
-        [StringLength (25, MinimumLength = 1, ErrorMessage = "Длина строки должна быть от 2 до 25 символов")]
+        [StringLength (25, MinimumLength = 2, ErrorMessage = "Длина строки должна быть от 2 до 25 символов")]
         public string FullName { get; set; }
         [Required (ErrorMessage = "Не указана ссылка на норму")]
         [Url (ErrorMessage = "Это не ссылка!")]        

@@ -15,10 +15,7 @@ namespace Regulations.Models
         public Role Role { get; set; }
         public List<Regulation> RegList { get; set; } //navigational prop
 
-        //public string NickName { get; set; }
-        //public string FirstName { get; set; }
-        //public string LastName { get; set; }
-        //public string Role { get; set; }
+        
 
     }
 }
