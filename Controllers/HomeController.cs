@@ -26,7 +26,7 @@ namespace Regulations.Controllers
         public async Task<IActionResult> Index()
         {
             var RegList = await db.Regulations.ToListAsync();
-             return View(RegList);
+            return View(RegList);
         }       
 
          public void GetHeaders()

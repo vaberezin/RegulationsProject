@@ -36,11 +36,11 @@ namespace Regulations.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddRegulation(Regulation regulation)
+        public async Task<IActionResult> AddRegulation(Regulation regulation)
         {
             if(ModelState.IsValid){
-                db.Regulations.Add(regulation);
-                db.SaveChanges();
+                await db.Regulations.AddAsync(regulation);
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index", "Home");
             }
             return View(regulation);
@@ -49,7 +49,7 @@ namespace Regulations.Controllers
 
         
         [HttpGet]
-        public IActionResult UpdateRegulation(int? id){
+        public async Task<IActionResult> UpdateRegulation(int? id){
 
             if (ActionPermission(id).Result)
             {
@@ -57,7 +57,7 @@ namespace Regulations.Controllers
                 {
                     return RedirectToAction("Index");
                 }
-                var reg = db.Regulations.Where<Regulation>(reg => reg.Id == id).FirstOrDefault();
+                var reg = await db.Regulations.Where<Regulation>(reg => reg.Id == id).FirstOrDefaultAsync();
                 return View(reg);
             }
             else
@@ -68,10 +68,10 @@ namespace Regulations.Controllers
 
         
         [HttpPost]
-        public IActionResult UpdateRegulation(Regulation regulation){
+        public async Task<IActionResult> UpdateRegulation(Regulation regulation){
             if(ModelState.IsValid){
-            db.Regulations.Update(regulation);
-            db.SaveChanges();            
+                db.Regulations.Update(regulation);
+                await db.SaveChangesAsync();            
             return RedirectToAction("Index", "Home");
             }
             return View(regulation);       
@@ -79,22 +79,22 @@ namespace Regulations.Controllers
 
         
         [HttpDelete]
-        public IActionResult DeleteRegulation(Regulation regulation) 
+        public async Task<IActionResult> DeleteRegulation(Regulation regulation) 
         {            
-            var reg = db.Regulations.Where<Regulation>(r => r.Id == regulation.Id).FirstOrDefault();
+            var reg = await db.Regulations.Where<Regulation>(r => r.Id == regulation.Id).FirstOrDefaultAsync();
             db.Regulations.Remove(reg);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
 
         
-        public IActionResult DeleteRegulation(int id)
+        public async Task<IActionResult> DeleteRegulation(int id)
         {       
             if (ActionPermission(id).Result)
             {                
-            Regulation regToDelete = db.Regulations.Find(id);
+            Regulation regToDelete = await db.Regulations.FindAsync(id);
             db.Regulations.Remove(regToDelete);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return Content("Данные успешно удалены.");
             }
             else
