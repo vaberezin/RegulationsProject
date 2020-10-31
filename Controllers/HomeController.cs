@@ -9,6 +9,7 @@ using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Regulations.Controllers
 {
@@ -22,9 +23,10 @@ namespace Regulations.Controllers
             db = context;
         }
         [AllowAnonymous]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(db.Regulations.ToList());
+            var RegList = await db.Regulations.ToListAsync();
+             return View(RegList);
         }       
 
          public void GetHeaders()

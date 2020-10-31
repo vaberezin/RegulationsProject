@@ -1,32 +1,11 @@
 ﻿@model Regulations.Models.Regulation
 @{
-    //ViewData["Title"] = "Список нормативной документации";
-    Layout = null;
+    ViewData["Title"] = "Редактирование записи";
+    Layout = "_ValidationRegLayout";
 }
-<!DOCTYPE html>
 
-<html>
-<head>
-    <title>Regulation Edition Page</title>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script><!--подключение jquery-->
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <link rel="stylesheet" href="~/css/site.css" />
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"
-            asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.validator">
-    </script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"
-            asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
-    </script>
-
-
-</head>
-<body>
-    
     <div>
-        <h3>Редактирование записей БД.</h3>
+        <h3>Редактирование записи</h3>
         <form asp-action="UpdateRegulation" asp-controller="Regulations" asp-antiforgery="true" method="post">
             <input type="hidden" asp-for="Id" value="@Model.Id" />
             <input type="hidden" asp-for="Added" value="@DateTime.Now" />
@@ -55,9 +34,5 @@
                 </tr>
                 <tr><td><input type="submit" value="Отправить изменения" /></td><td></td></tr>
             </table>
-        </form>        
-    </div>   
-    
-    
-</body>
-</html>
+        </form>
+    </div>
