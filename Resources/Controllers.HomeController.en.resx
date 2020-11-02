@@ -118,35 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="strAddReg" xml:space="preserve">
-    <value>Добавить норму</value>
-    <comment>Добавить норму в таблицу</comment>
+    <value>Add new</value>
+    <comment>Add new record to the list</comment>
   </data>
   <data name="strChangeReg" xml:space="preserve">
-    <value>Изменить</value>
-    <comment>Изменение нормы</comment>
+    <value>Edit</value>
+    <comment>Record edition</comment>
   </data>
   <data name="strDate" xml:space="preserve">
-    <value>Дата</value>
-    <comment>Дата добавления</comment>
+    <value>Date</value>
+    <comment>Record add date</comment>
   </data>
   <data name="strDelete" xml:space="preserve">
-    <value>Удалить</value>
-    <comment>Удаление нормы</comment>
+    <value>Delete</value>
+    <comment>Record deleting</comment>
   </data>
   <data name="strHeader" xml:space="preserve">
-    <value>Нормы</value>
-    <comment>Название таблицы норм на странице</comment>
+    <value>Regulations</value>
+    <comment>List name</comment>
   </data>
   <data name="strLink" xml:space="preserve">
-    <value>Ссылка</value>
-    <comment>Ссылка на норму</comment>
+    <value>Link</value>
+    <comment>Link to the regulation</comment>
   </data>
   <data name="strLogOut" xml:space="preserve">
-    <value>Выйти</value>
-    <comment>Выйти из текущего аккаунта</comment>
+    <value>Logout</value>
+    <comment>Logout from the current account</comment>
   </data>
   <data name="strTitle" xml:space="preserve">
-    <value>Список норм</value>
-    <comment>Название вкладки</comment>
+    <value>List of regulations</value>
+    <comment>Browser tab name</comment>
   </data>
 </root>

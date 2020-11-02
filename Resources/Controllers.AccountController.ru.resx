@@ -117,36 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="strAddReg" xml:space="preserve">
-    <value>Добавить норму</value>
-    <comment>Добавить норму в таблицу</comment>
+  <data name="Add_FullName" xml:space="preserve">
+    <value>Полное наименование нормативной документации</value>
   </data>
-  <data name="strChangeReg" xml:space="preserve">
-    <value>Изменить</value>
-    <comment>Изменение нормы</comment>
+  <data name="Add_Header" xml:space="preserve">
+    <value>Добавление записей в БД.</value>
   </data>
-  <data name="strDate" xml:space="preserve">
-    <value>Дата</value>
-    <comment>Дата добавления</comment>
+  <data name="Add_Link" xml:space="preserve">
+    <value>Введите ссылку на документацию</value>
   </data>
-  <data name="strDelete" xml:space="preserve">
-    <value>Удалить</value>
-    <comment>Удаление нормы</comment>
+  <data name="Add_ShortName" xml:space="preserve">
+    <value>Краткое наименование нормативной документации</value>
   </data>
-  <data name="strHeader" xml:space="preserve">
-    <value>Нормы</value>
-    <comment>Название таблицы норм на странице</comment>
+  <data name="Add_Submit" xml:space="preserve">
+    <value>Отправить изменения</value>
   </data>
-  <data name="strLink" xml:space="preserve">
-    <value>Ссылка</value>
-    <comment>Ссылка на норму</comment>
+  <data name="Add_UserId" xml:space="preserve">
+    <value>Ваш Id:</value>
   </data>
-  <data name="strLogOut" xml:space="preserve">
-    <value>Выйти</value>
-    <comment>Выйти из текущего аккаунта</comment>
+  <data name="Edit_FullName" xml:space="preserve">
+    <value>Полное наименование нормативной документации</value>
   </data>
-  <data name="strTitle" xml:space="preserve">
-    <value>Список норм</value>
-    <comment>Название вкладки</comment>
+  <data name="Edit_Header" xml:space="preserve">
+    <value>Редактирование записи</value>
+  </data>
+  <data name="Edit_Link" xml:space="preserve">
+    <value>Введите ссылку на документацию</value>
+  </data>
+  <data name="Edit_ShortName" xml:space="preserve">
+    <value>Краткое наименование нормативной документации</value>
+  </data>
+  <data name="Edit_Submit" xml:space="preserve">
+    <value>Отправить изменения</value>
+  </data>
+  <data name="Edit_UserId" xml:space="preserve">
+    <value>Ваш Id:</value>
   </data>
 </root>

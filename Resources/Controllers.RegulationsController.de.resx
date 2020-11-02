@@ -117,36 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="strAddReg" xml:space="preserve">
-    <value>Добавить норму</value>
-    <comment>Добавить норму в таблицу</comment>
+  <data name="strConfirmRegisterPassword" xml:space="preserve">
+    <value>Bestätigen Sie das Passwort</value>
   </data>
-  <data name="strChangeReg" xml:space="preserve">
-    <value>Изменить</value>
-    <comment>Изменение нормы</comment>
+  <data name="strHeaderLogin" xml:space="preserve">
+    <value>Loginseite</value>
   </data>
-  <data name="strDate" xml:space="preserve">
-    <value>Дата</value>
-    <comment>Дата добавления</comment>
+  <data name="strHeaderRegister" xml:space="preserve">
+    <value>Kontoregistrierungsseite</value>
   </data>
-  <data name="strDelete" xml:space="preserve">
-    <value>Удалить</value>
-    <comment>Удаление нормы</comment>
+  <data name="strLoginEmail" xml:space="preserve">
+    <value>Geben sie ihre E-Mail Adresse ein</value>
   </data>
-  <data name="strHeader" xml:space="preserve">
-    <value>Нормы</value>
-    <comment>Название таблицы норм на странице</comment>
+  <data name="strLoginPassword" xml:space="preserve">
+    <value>Geben Sie Ihr Passwort ein</value>
   </data>
-  <data name="strLink" xml:space="preserve">
-    <value>Ссылка</value>
-    <comment>Ссылка на норму</comment>
+  <data name="strNoAccess" xml:space="preserve">
+    <value>Sie haben nicht genügend Zugriffsrechte!</value>
   </data>
-  <data name="strLogOut" xml:space="preserve">
-    <value>Выйти</value>
-    <comment>Выйти из текущего аккаунта</comment>
+  <data name="strRegisterEmail" xml:space="preserve">
+    <value>Geben sie ihre E-Mail Adresse ein</value>
   </data>
-  <data name="strTitle" xml:space="preserve">
-    <value>Список норм</value>
-    <comment>Название вкладки</comment>
+  <data name="strRegisterPassword" xml:space="preserve">
+    <value>Geben Sie Ihr Passwort ein</value>
+  </data>
+  <data name="strSubmitLogin" xml:space="preserve">
+    <value>Anmeldung</value>
+  </data>
+  <data name="strSubmitLogout" xml:space="preserve">
+    <value>Ausloggen</value>
+  </data>
+  <data name="strSubmitRegistration" xml:space="preserve">
+    <value>Anmeldung</value>
+  </data>
+  <data name="strTitleAccessDenied" xml:space="preserve">
+    <value>Der Zugriff wird verweigert</value>
+  </data>
+  <data name="strWriteToAdmin" xml:space="preserve">
+    <value>Bitte wenden Sie sich an Ihren Administrator.</value>
   </data>
 </root>

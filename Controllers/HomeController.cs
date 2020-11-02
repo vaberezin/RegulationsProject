@@ -13,11 +13,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Regulations.Controllers
 {
-        [Authorize]
-        public class HomeController : Controller
+    [Authorize]
+    public class HomeController : Controller
     {
         RegulationContext db;
-        
+
         public HomeController(RegulationContext context)
         {
             db = context;
@@ -27,20 +27,20 @@ namespace Regulations.Controllers
         {
             var RegList = await db.Regulations.ToListAsync();
             return View(RegList);
-        }       
+        }
 
-         public void GetHeaders()
+        public void GetHeaders()
         {
             string table = "";
-            foreach (var header in Request.Headers){
+            foreach (var header in Request.Headers)
+            {
                 table += $"<tr><td>{header.Key}</td><td>{header.Value}</td></tr>";
             }
             Response.WriteAsync($"<table>{table}</table>");
-            
-            
         }
-    
-    }}
-        
+
+    }
+}
+
 
 

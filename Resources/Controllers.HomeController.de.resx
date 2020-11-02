@@ -118,35 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="strAddReg" xml:space="preserve">
-    <value>Добавить норму</value>
-    <comment>Добавить норму в таблицу</comment>
+    <value>Regulierung hinzufügen</value>
+    <comment>Fügen Sie der Liste Vorschriften hinzu</comment>
   </data>
   <data name="strChangeReg" xml:space="preserve">
-    <value>Изменить</value>
-    <comment>Изменение нормы</comment>
+    <value>Bearbeiten</value>
+    <comment>Verordnung Ausgabe</comment>
   </data>
   <data name="strDate" xml:space="preserve">
-    <value>Дата</value>
-    <comment>Дата добавления</comment>
+    <value>Datum</value>
+    <comment>Datum hinzufügen</comment>
   </data>
   <data name="strDelete" xml:space="preserve">
-    <value>Удалить</value>
-    <comment>Удаление нормы</comment>
+    <value>Löschen</value>
+    <comment>Regelung löschen</comment>
   </data>
   <data name="strHeader" xml:space="preserve">
-    <value>Нормы</value>
-    <comment>Название таблицы норм на странице</comment>
+    <value>Vorschriften</value>
+    <comment>Verordnungsliste Titel</comment>
   </data>
   <data name="strLink" xml:space="preserve">
-    <value>Ссылка</value>
-    <comment>Ссылка на норму</comment>
+    <value>Verknüpfung</value>
+    <comment>Link zur Verordnung</comment>
   </data>
   <data name="strLogOut" xml:space="preserve">
-    <value>Выйти</value>
-    <comment>Выйти из текущего аккаунта</comment>
+    <value>Ausloggen</value>
+    <comment>Abmelden vom Girokonto</comment>
   </data>
   <data name="strTitle" xml:space="preserve">
-    <value>Список норм</value>
-    <comment>Название вкладки</comment>
+    <value>Liste der Vorschriften</value>
+    <comment>Name der Browser-Registerkarte</comment>
   </data>
 </root>

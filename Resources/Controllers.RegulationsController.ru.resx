@@ -117,36 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="strAddReg" xml:space="preserve">
-    <value>Добавить норму</value>
-    <comment>Добавить норму в таблицу</comment>
+  <data name="strConfirmRegisterPassword" xml:space="preserve">
+    <value>Подтвердите пароль</value>
   </data>
-  <data name="strChangeReg" xml:space="preserve">
-    <value>Изменить</value>
-    <comment>Изменение нормы</comment>
+  <data name="strHeaderLogin" xml:space="preserve">
+    <value>Страница входа на сайт</value>
   </data>
-  <data name="strDate" xml:space="preserve">
-    <value>Дата</value>
-    <comment>Дата добавления</comment>
+  <data name="strHeaderRegister" xml:space="preserve">
+    <value>Страница регистрации учетных записей</value>
   </data>
-  <data name="strDelete" xml:space="preserve">
-    <value>Удалить</value>
-    <comment>Удаление нормы</comment>
+  <data name="String" xml:space="preserve">
+    <value>Введите Ваш пароль</value>
   </data>
-  <data name="strHeader" xml:space="preserve">
-    <value>Нормы</value>
-    <comment>Название таблицы норм на странице</comment>
+  <data name="strLoginEmail" xml:space="preserve">
+    <value>Введите Ваш E-mail</value>
   </data>
-  <data name="strLink" xml:space="preserve">
-    <value>Ссылка</value>
-    <comment>Ссылка на норму</comment>
+  <data name="strLoginPassword" xml:space="preserve">
+    <value>Введите Ваш пароль</value>
   </data>
-  <data name="strLogOut" xml:space="preserve">
+  <data name="strNoAccess" xml:space="preserve">
+    <value>У Вас недостаточно прав доступа!</value>
+    <comment>-</comment>
+  </data>
+  <data name="strRegisterEmail" xml:space="preserve">
+    <value>Введите Ваш E-mail</value>
+  </data>
+  <data name="strRegisterPassword" xml:space="preserve">
+    <value>Введите Ваш пароль</value>
+  </data>
+  <data name="strSubmitLogin" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="strSubmitLogout" xml:space="preserve">
     <value>Выйти</value>
-    <comment>Выйти из текущего аккаунта</comment>
   </data>
-  <data name="strTitle" xml:space="preserve">
-    <value>Список норм</value>
-    <comment>Название вкладки</comment>
+  <data name="strSubmitRegistration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="strTitleAccessDenied" xml:space="preserve">
+    <value>Доступ запрещен</value>
+    <comment>-</comment>
+  </data>
+  <data name="strWriteToAdmin" xml:space="preserve">
+    <value>Обратитесь к администратору.</value>
+    <comment>-</comment>
   </data>
 </root>
