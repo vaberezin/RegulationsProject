@@ -12,7 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
-
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace Regulations
 {
@@ -37,7 +38,9 @@ namespace Regulations
                         options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");                        
                         options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");                      
                     });
-            services.AddControllersWithViews();
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.AddControllersWithViews()
+                    .AddViewLocalization(); //add views localization
         }
                 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,6 +53,19 @@ namespace Regulations
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            var supportedCultures = new[]
+            {
+                new CultureInfo("ru"),
+                new CultureInfo("en"),
+                new CultureInfo("de")
+        };
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("ru"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            }) ;
             app.UseStaticFiles();
 
             app.UseAuthentication();
