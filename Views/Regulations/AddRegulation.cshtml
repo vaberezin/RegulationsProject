@@ -5,7 +5,7 @@
 
 }
 @{
-    ViewData["Title"] = "Добавление записи";
+    ViewData["Title"] = localizer["Add_Header"];
     Layout = "_ValidationRegLayout";
 }
 @using Microsoft.AspNetCore.Mvc.Localization;
@@ -14,7 +14,7 @@
 
 <div>
     <span>@User.Identity.Name</span>
-    <h3>Добавление записей в БД.</h3>
+    <h3>@localizer["Add_Header"]</h3>
     <form asp-action="AddRegulation" asp-controller="Regulations" asp-antiforgery="true" method="post">
         <input type="hidden" asp-for="Id" value="@Model.Id" />
         <input type="hidden" asp-for="Added" value="@DateTime.Now" />
@@ -22,26 +22,26 @@
 
         <table>
             <tr>
-                <td>Краткое наименование нормативной документации</td>
+                <td>@localizer["Add_ShortName"]</td>
                 <td><input type="text" asp-for="ShortName" value="@Model.ShortName" /></td>
                 <td><span asp-validation-for="ShortName"></span></td>
             </tr>
             <tr>
-                <td>Полное наименование нормативной документации</td>
+                <td>@localizer["Add_FullName"]</td>
                 <td><input type="text" asp-for="FullName" value="@Model.FullName" /></td>
                 <td><span asp-validation-for="FullName"></span></td>
             </tr>
             <tr>
-                <td>Введите ссылку на документацию</td>
+                <td>@localizer["Add_Link"]</td>
                 <td><input type="text" asp-for="Link" value="@Model.Link" /></td>
                 <td><span asp-validation-for="Link"></span></td>
             </tr>
             <tr>
-                <td>Ваш Id:</td>
+                <td>@localizer["Add_UserId"]</td>
                 <td><input type="number" asp-for="UserId" /></td>
                 <td><span asp-validation-for="UserId" value=""></span></td>
             </tr>
-            <tr><td><input type="submit" value="Отправить изменения" /></td><td></td></tr>
+            <tr><td><input type="submit" value=@localizer["Add_Submit"] /></td><td></td></tr>
         </table>
     </form>
 </div>

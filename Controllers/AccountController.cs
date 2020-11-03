@@ -74,7 +74,7 @@ namespace Regulations.Controllers
                 }
                     else
                     {
-                        ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                        ModelState.AddModelError("", localizer["strModelError"]);
                     }
                     
                 }

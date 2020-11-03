@@ -98,7 +98,7 @@ namespace Regulations.Controllers
             Regulation regToDelete = await db.Regulations.FindAsync(id);
             db.Regulations.Remove(regToDelete);
             await db.SaveChangesAsync();
-            return Content(localizer["strDataDeletedSuccessfully"]);
+            return Content(localizer["strDataDeletedSuccessfully"]); //doest work right. why it doesnt get the value by key?
             }
             else
             {

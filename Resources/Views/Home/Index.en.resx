@@ -145,6 +145,9 @@
     <value>Logout</value>
     <comment>Logout from the current account</comment>
   </data>
+  <data name="strName" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="strTitle" xml:space="preserve">
     <value>List of regulations</value>
     <comment>Browser tab name</comment>

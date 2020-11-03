@@ -1,13 +1,13 @@
 ﻿@model Regulations.Models.Regulation
 @{
-    ViewData["Title"] = "Редактирование записи";
+    ViewData["Title"] = localizer["Edit_Header"];
     Layout = "_ValidationRegLayout";
 }
 @using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer localizer;
 
 <div>
-    <h3>Редактирование записи</h3>
+    <h3>@localizer["Edit_Header"]</h3>
     <form asp-action="UpdateRegulation" asp-controller="Regulations" asp-antiforgery="true" method="post">
         <input type="hidden" asp-for="Id" value="@Model.Id" />
         <input type="hidden" asp-for="Added" value="@DateTime.Now" />
@@ -15,26 +15,26 @@
 
         <table>
             <tr>
-                <td>Краткое наименование нормативной документации</td>
+                <td>@localizer["Edit_ShortName"]</td>
                 <td><input type="text" asp-for="ShortName" value="@Model.ShortName" /></td>
                 <td><span asp-validation-for="ShortName"></span></td>
             </tr>
             <tr>
-                <td>Полное наименование нормативной документации</td>
+                <td>@localizer["Edit_FullName"]</td>
                 <td><input type="text" asp-for="FullName" value="@Model.FullName" /></td>
                 <td><span asp-validation-for="FullName"></span></td>
             </tr>
             <tr>
-                <td>Введите ссылку на документацию</td>
+                <td>@localizer["Edit_Link"]</td>
                 <td><input type="text" asp-for="Link" value="@Model.Link" /></td>
                 <td><span asp-validation-for="Link"></span></td>
             </tr>
             <tr>
-                <td>Ваш Id:</td>
+                <td>@localizer["Edit_UserId"]</td>
                 <td><input type="number" asp-for="UserId" value="" /></td>
                 <td><span asp-validation-for="UserId"></span></td>
             </tr>
-            <tr><td><input type="submit" value="Отправить изменения" /></td><td></td></tr>
+            <tr><td><input type="submit" value=@localizer["Edit_Submit"] /></td><td></td></tr>
         </table>
     </form>
 </div>

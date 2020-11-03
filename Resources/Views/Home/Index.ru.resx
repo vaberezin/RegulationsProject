@@ -145,8 +145,11 @@
     <value>Выйти</value>
     <comment>Выйти из текущего аккаунта</comment>
   </data>
+  <data name="strName" xml:space="preserve">
+    <value>Наименование</value>
+  </data>
   <data name="strTitle" xml:space="preserve">
-    <value>Список норм</value>
+    <value>Список нормативной документации</value>
     <comment>Название вкладки</comment>
   </data>
 </root>

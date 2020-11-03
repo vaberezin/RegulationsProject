@@ -1,33 +1,33 @@
 ﻿@Model IEnumerable<Regulations.Models.Regulation>
     @{
-        ViewData["Title"] = "Список нормативной документации";
+        ViewData["Title"] = localizer["strHeader"];
         Layout = "_Layout";
     }
     @using Microsoft.AspNetCore.Mvc.Localization;
     @inject IViewLocalizer localizer;
 
-    <h3>Список нормативной документации</h3>
+    <h3>@localizer["strTitle"]</h3>
     <table>
         <tr>
             <td>
                 <form action="get">
-                    <button class="btn-danger" type="submit" asp-action="Logout" asp-controller="Account">Выйти</button>
+                    <button class="btn-danger" type="submit" asp-action="Logout" asp-controller="Account">@localizer["strLogOut"]</button>
                 </form>
             </td>
 
         </tr>
         <tr>
-            <td>Название</td>
-            <td>Дата</td>
+            <td>@localizer["strName"]</td>
+            <td>@localizer["strDate"]</td>
         </tr>
         @foreach (var reg in Model)
         {
             <tr>
                 <td>@reg.ShortName</td>
                 <td>@reg.Added</td>
-                <td><a href="@reg.Link">Ссылка</a></td>
-                <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Изменение записи</a></td>
-                <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Удаление записи</a></td>
+                <td><a href="@reg.Link">@localizer["strLink"]</a></td>
+                <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">@localizer["strChangeReg"]</a></td>
+                <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">@localizer["strDelete"]</a></td>
                 <td></td>
             </tr>
         }
@@ -36,6 +36,6 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
+            <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">@localizer["strAddReg"]</a></td>
         </tr>
     </table>

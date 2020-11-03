@@ -40,7 +40,9 @@ namespace Regulations
                     });
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddControllersWithViews()
-                    .AddViewLocalization(); //add views localization
+                .AddMvcLocalization();
+                    //.AddDataAnnotationsLocalization()                    
+                    //.AddViewLocalization(); //add views localization
         }
                 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

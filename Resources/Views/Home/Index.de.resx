@@ -145,6 +145,9 @@
     <value>Ausloggen</value>
     <comment>Abmelden vom Girokonto</comment>
   </data>
+  <data name="strName" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="strTitle" xml:space="preserve">
     <value>Liste der Vorschriften</value>
     <comment>Name der Browser-Registerkarte</comment>

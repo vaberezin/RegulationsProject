@@ -6,29 +6,29 @@
 @using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer localizer;
 
-    <h2>Страница регистрации учетных записей</h2>
+    <h2>@localizer["strHeaderRegister"]</h2>
 
 
     <form asp-action="Register" asp-controller="Account" method="post" asp-antiforgery="true">
         <div class="validation" asp-validation-summary="ModelOnly"></div>
         <div>
             <div class="form-group">
-                <label asp-for="Email">Введите Ваш E-mail</label>
+                <label asp-for="Email">@localizer["strRegisterEmail"]</label>
                 <input type="email" asp-for="Email" />
                 <span asp-validation-for="Email"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password">Введите Ваш пароль</label>
+                <label asp-for="Password">@localizer["strRegisterPassword"]</label>
                 <input type="password" asp-for="Password" />
                 <span asp-validation-for="Password"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ConfirmPassword">Подтвердите пароль</label>
+                <label asp-for="ConfirmPassword">@localizer["strConfirmRegisterPassword"]</label>
                 <input type="password" asp-for="ConfirmPassword" />
                 <span asp-validation-for="ConfirmPassword"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Регистрация" class="btn btn-outline-dark" />
+                <input type="submit" value="@localizer["strSubmitRegistration"]" class="btn btn-outline-dark" />
             </div>
         </div>
     </form>
