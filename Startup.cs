@@ -25,26 +25,38 @@ namespace Regulations
         }
 
         public IConfiguration Configuration { get; }
-       
+
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("Default");
-            services.AddDbContext<RegulationContext>(options => 
+            services.AddDbContext<RegulationContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("Default")));
 
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[]
+                {
+                    new CultureInfo("en"),
+                    new CultureInfo("de"),
+                    new CultureInfo("Ru")
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("Ru");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+            
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                    .AddCookie(options => //cookieAuthenticationOptions)
-                    {
-                        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");                        
-                        options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");                      
-                    });
+                        .AddCookie(options => //cookieAuthenticationOptions)
+                        {
+                            options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                            options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");
+                        });
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddControllersWithViews()
-                .AddMvcLocalization();
-                    //.AddDataAnnotationsLocalization()                    
-                    //.AddViewLocalization(); //add views localization
+                .AddMvcLocalization();            
         }
-                
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -56,18 +68,8 @@ namespace Regulations
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            var supportedCultures = new[]
-            {
-                new CultureInfo("ru"),
-                new CultureInfo("en"),
-                new CultureInfo("de")
-        };
-            app.UseRequestLocalization(new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("ru"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            }) ;
+            app.UseRequestLocalization();
+            
             app.UseStaticFiles();
 
             app.UseAuthentication();

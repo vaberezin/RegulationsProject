@@ -10,6 +10,7 @@ using Regulations.Models.DatabaseContexts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Localization;
 
 namespace Regulations.Controllers
 {
@@ -28,7 +29,18 @@ namespace Regulations.Controllers
             var RegList = await db.Regulations.ToListAsync();
             return View(RegList);
         }
+        //adding language choosing option
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
 
+            return LocalRedirect(returnUrl);
+        }
         public void GetHeaders()
         {
             string table = "";
