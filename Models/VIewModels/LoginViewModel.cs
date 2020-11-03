@@ -8,10 +8,10 @@ namespace Regulations.Models.ViewModels
 {
     public class LoginViewModel
     {
-        [Required (ErrorMessage = "Не указан e-mail.")]
+        [Required (ErrorMessage = "TypeEmail")]
         public string Email { get; set; }
         
-        [Required (ErrorMessage = "Не указан пароль.")]
+        [Required (ErrorMessage = "TypePassword")]
         [DataType (DataType.Password)]
         public string Password { get; set; }    
     }
