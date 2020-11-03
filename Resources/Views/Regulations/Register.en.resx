@@ -117,49 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="strConfirmRegisterPassword" xml:space="preserve">
-    <value>Confirm the password</value>
+  <data name="Add_FullName" xml:space="preserve">
+    <value>Full name of regulatory documentation</value>
   </data>
-  <data name="strHeaderLogin" xml:space="preserve">
-    <value>Login page</value>
+  <data name="Add_Header" xml:space="preserve">
+    <value>Adding records to the database.</value>
   </data>
-  <data name="strHeaderRegister" xml:space="preserve">
-    <value>Account registration page</value>
+  <data name="Add_Link" xml:space="preserve">
+    <value>Enter the link to the documentation</value>
   </data>
-  <data name="String" xml:space="preserve">
-    <value>Enter your password</value>
+  <data name="Add_ShortName" xml:space="preserve">
+    <value>Short name of regulatory documents</value>
   </data>
-  <data name="strLoginEmail" xml:space="preserve">
-    <value>Enter your E-mail</value>
+  <data name="Add_Submit" xml:space="preserve">
+    <value>Submit changes</value>
   </data>
-  <data name="strLoginPassword" xml:space="preserve">
-    <value>Enter your password</value>
+  <data name="Add_UserId" xml:space="preserve">
+    <value>Your Id:</value>
   </data>
-  <data name="strNoAccess" xml:space="preserve">
-    <value>You do not have sufficient access rights!</value>
-    <comment>-</comment>
+  <data name="Edit_FullName" xml:space="preserve">
+    <value>Full name of regulatory documentation</value>
   </data>
-  <data name="strRegisterEmail" xml:space="preserve">
-    <value>Enter your E-mail</value>
+  <data name="Edit_Header" xml:space="preserve">
+    <value>Record Editing </value>
   </data>
-  <data name="strRegisterPassword" xml:space="preserve">
-    <value>Enter your password</value>
+  <data name="Edit_Link" xml:space="preserve">
+    <value>Enter the link to the documentation</value>
   </data>
-  <data name="strSubmitLogin" xml:space="preserve">
-    <value>Login</value>
+  <data name="Edit_ShortName" xml:space="preserve">
+    <value>Short name of regulatory documents</value>
   </data>
-  <data name="strSubmitLogout" xml:space="preserve">
-    <value>Logout</value>
+  <data name="Edit_Submit" xml:space="preserve">
+    <value>Submit changes</value>
   </data>
-  <data name="strSubmitRegistration" xml:space="preserve">
-    <value>Submit</value>
-  </data>
-  <data name="strTitleAccessDenied" xml:space="preserve">
-    <value>Access denied</value>
-    <comment>-</comment>
-  </data>
-  <data name="strWriteToAdmin" xml:space="preserve">
-    <value>Please contact site administrator.</value>
-    <comment>-</comment>
+  <data name="Edit_UserId" xml:space="preserve">
+    <value>Your Id:</value>
   </data>
 </root>

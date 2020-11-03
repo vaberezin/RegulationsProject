@@ -117,49 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="strConfirmRegisterPassword" xml:space="preserve">
-    <value>Подтвердите пароль</value>
+  <data name="Add_FullName" xml:space="preserve">
+    <value>Vollständiger Name der behördlichen Dokumentation</value>
   </data>
-  <data name="strHeaderLogin" xml:space="preserve">
-    <value>Страница входа на сайт</value>
+  <data name="Add_Header" xml:space="preserve">
+    <value>Hinzufügen von Datensätzen zur Datenbank.</value>
   </data>
-  <data name="strHeaderRegister" xml:space="preserve">
-    <value>Страница регистрации учетных записей</value>
+  <data name="Add_Link" xml:space="preserve">
+    <value>Geben Sie den Link zur Dokumentation ein</value>
   </data>
-  <data name="String" xml:space="preserve">
-    <value>Введите Ваш пароль</value>
+  <data name="Add_ShortName" xml:space="preserve">
+    <value>Kurzname der behördlichen Dokumente</value>
   </data>
-  <data name="strLoginEmail" xml:space="preserve">
-    <value>Введите Ваш E-mail</value>
+  <data name="Add_Submit" xml:space="preserve">
+    <value>Änderungen einreichen</value>
   </data>
-  <data name="strLoginPassword" xml:space="preserve">
-    <value>Введите Ваш пароль</value>
+  <data name="Add_UserId" xml:space="preserve">
+    <value>Ihre ID:</value>
   </data>
-  <data name="strNoAccess" xml:space="preserve">
-    <value>У Вас недостаточно прав доступа!</value>
-    <comment>-</comment>
+  <data name="Edit_FullName" xml:space="preserve">
+    <value>Vollständiger Name der behördlichen Dokumentation</value>
   </data>
-  <data name="strRegisterEmail" xml:space="preserve">
-    <value>Введите Ваш E-mail</value>
+  <data name="Edit_Header" xml:space="preserve">
+    <value>Datensatz bearbeiten</value>
   </data>
-  <data name="strRegisterPassword" xml:space="preserve">
-    <value>Введите Ваш пароль</value>
+  <data name="Edit_Link" xml:space="preserve">
+    <value>Geben Sie den Link zur Dokumentation ein</value>
   </data>
-  <data name="strSubmitLogin" xml:space="preserve">
-    <value>Войти</value>
+  <data name="Edit_ShortName" xml:space="preserve">
+    <value>Kurzname der behördlichen Dokumente</value>
   </data>
-  <data name="strSubmitLogout" xml:space="preserve">
-    <value>Выйти</value>
+  <data name="Edit_Submit" xml:space="preserve">
+    <value>Änderungen einreichen</value>
   </data>
-  <data name="strSubmitRegistration" xml:space="preserve">
-    <value>Регистрация</value>
-  </data>
-  <data name="strTitleAccessDenied" xml:space="preserve">
-    <value>Доступ запрещен</value>
-    <comment>-</comment>
-  </data>
-  <data name="strWriteToAdmin" xml:space="preserve">
-    <value>Обратитесь к администратору.</value>
-    <comment>-</comment>
+  <data name="Edit_UserId" xml:space="preserve">
+    <value>Ihre ID:</value>
   </data>
 </root>
