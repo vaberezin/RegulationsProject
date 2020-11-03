@@ -3,38 +3,39 @@
         ViewData["Title"] = "Список нормативной документации";
         Layout = "_Layout";
     }
-    
-        <h3>Список нормативной документации</h3>
-        <table>
+    @using Microsoft.AspNetCore.Mvc.Localization;
+    @inject IViewLocalizer localizer;
+
+    <h3>Список нормативной документации</h3>
+    <table>
+        <tr>
+            <td>
+                <form action="get">
+                    <button class="btn-danger" type="submit" asp-action="Logout" asp-controller="Account">Выйти</button>
+                </form>
+            </td>
+
+        </tr>
+        <tr>
+            <td>Название</td>
+            <td>Дата</td>
+        </tr>
+        @foreach (var reg in Model)
+        {
             <tr>
-                <td>
-                    <form action="get">
-                        <button class="btn-danger" type="submit" asp-action="Logout" asp-controller="Account">Выйти</button>
-                    </form>
-                </td>
-                
+                <td>@reg.ShortName</td>
+                <td>@reg.Added</td>
+                <td><a href="@reg.Link">Ссылка</a></td>
+                <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Изменение записи</a></td>
+                <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Удаление записи</a></td>
+                <td></td>
             </tr>
-            <tr>
-                <td>Название</td>
-                <td>Дата</td>
-            </tr>
-            @foreach (var reg in Model)
-            {
-                <tr>
-                    <td>@reg.ShortName</td>
-                    <td>@reg.Added</td>
-                    <td><a href="@reg.Link">Ссылка</a></td>
-                    <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Изменение записи</a></td>
-                    <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Удаление записи</a></td>
-                    <td></td>
-                </tr>
-            }
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
-            </tr>
-        </table>
-        
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
+        </tr>
+    </table>
