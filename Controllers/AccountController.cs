@@ -41,8 +41,9 @@ namespace Regulations.Controllers
                     await Authenticate(user);
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("","Неправильный логин и(или) пароль.");
-                
+                ModelState.AddModelError("",localizer["strModelError"]);
+
+
             }
             return View(model);
         }

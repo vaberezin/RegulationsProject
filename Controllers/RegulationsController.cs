@@ -98,7 +98,7 @@ namespace Regulations.Controllers
             Regulation regToDelete = await db.Regulations.FindAsync(id);
             db.Regulations.Remove(regToDelete);
             await db.SaveChangesAsync();
-            return Content("Данные успешно удалены.");
+            return Content(localizer["strDataDeletedSuccessfully"]);
             }
             else
             {
