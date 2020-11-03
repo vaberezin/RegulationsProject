@@ -13,23 +13,23 @@ namespace Regulations.Models
 
         [Required] 
         public int Id { get; set; }
-        [Required (ErrorMessage =  "Не указан шифр нормы")] 
+        [Required (ErrorMessage =  "strNoRegCrypt")] 
         public string ShortName { get; set; }
-        [Required (ErrorMessage = "Не указано наименование нормы")] 
-        [StringLength (25, MinimumLength = 2, ErrorMessage = "Длина строки должна быть от 2 до 25 символов")]
+        [Required (ErrorMessage = "strNoName")] 
+        [StringLength (25, MinimumLength = 2, ErrorMessage = "strStrLengthError")]
         public string FullName { get; set; }
-        [Required (ErrorMessage = "Не указана ссылка на норму")]
-        [Url (ErrorMessage = "Это не ссылка!")]        
+        [Required (ErrorMessage = "strNoLink")]
+        [Url (ErrorMessage = "strNotLink")]        
         public string Link { get; set; }
         [Required] 
         public DateTime Added { get; set; }
         //public User Author { get; set; }
-        [Required (ErrorMessage = "Не указан Ваш Id")] 
+        [Required (ErrorMessage = "strNoId")] 
 
         
         public User User { get; set; } //navigational prop
 
-        [Range (1,1000, ErrorMessage = "Сударь, не лукавьте ;), это не Ваш Id")]
+        [Range (1,1000, ErrorMessage = "strNotYourId")]
         public int UserId { get; set; } //foreign key
 
         
