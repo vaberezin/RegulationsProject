@@ -11,15 +11,18 @@ using Regulations.Models.DatabaseContexts;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.Localization;
 
 namespace Regulations.Controllers
 {    
-    public class AccountController : Controller
+    public class AccountController : Controller 
     {
+        private readonly IStringLocalizer<AccountController> localizer;
         private RegulationContext db;
-        public AccountController(RegulationContext context)
+        public AccountController(RegulationContext context, IStringLocalizer<AccountController> _localizer)
         {
             db = context;
+            localizer = _localizer;
         }
         
         [HttpGet]

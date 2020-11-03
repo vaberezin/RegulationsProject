@@ -11,18 +11,21 @@ using Regulations.Models.DatabaseContexts;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace Regulations.Controllers
 {   
     [Authorize (Roles = "admin, user") ]
     public class RegulationsController : Controller
     {
+        private readonly IStringLocalizer<AccountController> localizer;
         RegulationContext db;
         
         
-        public RegulationsController(RegulationContext context)
+        public RegulationsController(RegulationContext context, IStringLocalizer<AccountController> _localizer)
         {
             db = context;
+            localizer = _localizer;
         }
         
         
