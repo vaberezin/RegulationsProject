@@ -20,28 +20,34 @@
         <input type="hidden" asp-for="Added" value="@DateTime.Now" />
         <input type="hidden" asp-for="User.Email" value="@User.Identity.Name" />
 
-        <table>
-            <tr>
-                <td>@localizer["Add_ShortName"]</td>
-                <td><input type="text" asp-for="ShortName" value="@Model.ShortName" /></td>
-                <td><span asp-validation-for="ShortName"></span></td>
-            </tr>
-            <tr>
-                <td>@localizer["Add_FullName"]</td>
-                <td><input type="text" asp-for="FullName" value="@Model.FullName" /></td>
-                <td><span asp-validation-for="FullName"></span></td>
-            </tr>
-            <tr>
-                <td>@localizer["Add_Link"]</td>
-                <td><input type="text" asp-for="Link" value="@Model.Link" /></td>
-                <td><span asp-validation-for="Link"></span></td>
-            </tr>
-            <tr>
-                <td>@localizer["Add_UserId"]</td>
-                <td><input type="number" asp-for="UserId" /></td>
-                <td><span asp-validation-for="UserId" value=""></span></td>
-            </tr>
-            <tr><td><input type="submit" value=@localizer["Add_Submit"] /></td><td></td></tr>
-        </table>
+
+        <div class="form-group">
+            <label>@localizer["Add_ShortName"]</label>
+            <input type="text" asp-for="ShortName" value="@Model.ShortName" />
+            <span asp-validation-for="ShortName"></span>
+        </div>
+        <div class="form-group">
+            <label>@localizer["Add_ShortName"]</label>
+            <input type="text" asp-for="ShortName" value="@Model.ShortName" />
+            <span asp-validation-for="ShortName"></span>
+        </div>
+        <div class="form-group">
+            <label>@localizer["Add_FullName"]</label>
+            <input type="text" asp-for="FullName" value="@Model.FullName" />
+            <span asp-validation-for="FullName"></span>
+        </div>
+        <div class="form-group">
+            <label>@localizer["Add_Link"]</label>
+            <input type="text" asp-for="Link" value="@Model.Link" />
+            <span asp-validation-for="Link"></span>
+        </div>
+        <div class="form-group">
+            <label>@localizer["Add_UserId"]</label>
+            <input type="number" asp-for="UserId" />
+            <span asp-validation-for="UserId" value=""></span>
+        </div>
+        <div>
+            <input type="submit" value=@localizer["Add_Submit"] class="btn btn-primary" />
+        </div>
     </form>
 </div>

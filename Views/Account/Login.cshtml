@@ -8,14 +8,13 @@
 
 
 <form action="get">
-    <button class="btn-danger" type="submit" asp-action="Logout" asp-controller="Account">@localizer["strSubmitLogout"]</button>
+    <button class="btn btn-outline-danger" type="submit" asp-action="Logout" asp-controller="Account">@localizer["strSubmitLogout"]</button>
 </form>
 
-<h2>@localizer["strHeaderLogin"]</h2>
+<h2 class="text-black-50">@localizer["strHeaderLogin"]</h2>
 
-<a asp-action="Register" asp-controller="Account">@localizer["strRegistration"]</a>
-<form asp-action="Login" asp-controller="Account" method="post" asp-antiforgery="true
-          ">
+<a asp-action="Register" asp-controller="Account" class="btn btn-outline-secondary">@localizer["strRegistration"]</a>
+<form asp-action="Login" asp-controller="Account" method="post" asp-antiforgery="true">
     <div class="validation" asp-validation-summary="ModelOnly"></div>
     <div>
         <div class="form-group">
@@ -29,7 +28,7 @@
             <span asp-validation-for="Password"></span>
         </div>
         <div class="form-group">
-            <input type="submit" value="@localizer["strSubmitLogin"]" class="btn btn-outline-dark" />
+            <input type="submit" value="@localizer["strSubmitLogin"]" class="btn btn-outline-primary" />
         </div>
     </div>
 </form>
