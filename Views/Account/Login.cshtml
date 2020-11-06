@@ -6,29 +6,37 @@
 @using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer localizer;
 
-
-<form action="get">
-    <button class="btn btn-outline-danger" type="submit" asp-action="Logout" asp-controller="Account">@localizer["strSubmitLogout"]</button>
-</form>
-
 <h2 class="text-black-50">@localizer["strHeaderLogin"]</h2>
+<div>
+    <form action="get">
+        <button class="btn btn-outline-danger" type="submit" asp-action="Logout"
+            asp-controller="Account">@localizer["strSubmitLogout"]</button>
+    </form>
+    <a asp-action="Register" asp-controller="Account" role="button"
+        class="btn btn-outline-secondary">@localizer["strRegistration"]</a>
+</div>
+<div class=".float-left">
+    <table class="table table-hover">
 
-<a asp-action="Register" asp-controller="Account" class="btn btn-outline-secondary">@localizer["strRegistration"]</a>
-<form asp-action="Login" asp-controller="Account" method="post" asp-antiforgery="true">
-    <div class="validation" asp-validation-summary="ModelOnly"></div>
-    <div>
-        <div class="form-group">
-            <label asp-for="Email">@localizer["strLoginEmail"]</label>
-            <input type="text" asp-for="Email" />
-            <span asp-validation-for="Email"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="Password">@localizer["strLoginPassword"]</label>
-            <input type="password" asp-for="Password" />
-            <span asp-validation-for="Password"></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="@localizer["strSubmitLogin"]" class="btn btn-outline-primary" />
-        </div>
-    </div>
-</form>
+        <form asp-action="Login" asp-controller="Account" method="post" asp-antiforgery="true">
+            <tr class="form-group">
+                <td><label asp-for="Email">@localizer["strLoginEmail"]</label></td>
+                <td><input type="text" asp-for="Email" class="form-control" /></td>
+                <td><span asp-validation-for="Email"></span></td>
+            </tr>
+            <tr class="form-group">
+                <td><label asp-for="Password">@localizer["strLoginPassword"]</label></td>
+                <td><input type="password" asp-for="Password" class="form-control" /></td>
+                <td><span asp-validation-for="Password"></span></td>
+            </tr>
+            <tr class="form-group">
+                <td>
+                    <input class="btn btn-outline-primary" type="submit" value="@localizer["strSubmitLogin"]" />
+                </td>
+
+            </tr>
+        </form>
+
+
+    </table>
+</div>
