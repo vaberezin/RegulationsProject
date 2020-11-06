@@ -12,7 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Regulations.Models;
 using Regulations.Models.DatabaseContexts;
-
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace Regulations
 {
@@ -24,22 +25,38 @@ namespace Regulations
         }
 
         public IConfiguration Configuration { get; }
-       
+
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("Default");
-            services.AddDbContext<RegulationContext>(options => 
+            services.AddDbContext<RegulationContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("Default")));
 
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[]
+                {
+                    new CultureInfo("en"),
+                    new CultureInfo("de"),
+                    new CultureInfo("Ru")
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("Ru");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+            
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                    .AddCookie(options => //cookieAuthenticationOptions)
-                    {
-                        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");                        
-                        options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");                      
-                    });
-            services.AddControllersWithViews();
+                        .AddCookie(options => //cookieAuthenticationOptions)
+                        {
+                            options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                            options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/AccessDenied");
+                        });
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.AddControllersWithViews()
+                .AddMvcLocalization();            
         }
-                
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -50,6 +67,9 @@ namespace Regulations
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseRequestLocalization();
+            
             app.UseStaticFiles();
 
             app.UseAuthentication();

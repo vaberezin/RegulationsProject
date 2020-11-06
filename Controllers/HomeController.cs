@@ -10,14 +10,15 @@ using Regulations.Models.DatabaseContexts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Localization;
 
 namespace Regulations.Controllers
 {
-        [Authorize]
-        public class HomeController : Controller
+    [Authorize]
+    public class HomeController : Controller
     {
         RegulationContext db;
-        
+
         public HomeController(RegulationContext context)
         {
             db = context;
@@ -27,20 +28,31 @@ namespace Regulations.Controllers
         {
             var RegList = await db.Regulations.ToListAsync();
             return View(RegList);
-        }       
+        }
+        //adding language choosing option
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
 
-         public void GetHeaders()
+            return LocalRedirect(returnUrl);
+        }
+        public void GetHeaders()
         {
             string table = "";
-            foreach (var header in Request.Headers){
+            foreach (var header in Request.Headers)
+            {
                 table += $"<tr><td>{header.Key}</td><td>{header.Value}</td></tr>";
             }
             Response.WriteAsync($"<table>{table}</table>");
-            
-            
         }
-    
-    }}
-        
+
+    }
+}
+
 
 

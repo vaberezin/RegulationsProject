@@ -11,7 +11,11 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 </head>
 <body>
-
+    <div class="container body-content">
+        <div>
+            @await Html.PartialAsync("_SelectLanguagePartial")
+        </div>
+    </div>
     @RenderBody()
 
     <footer class="border-top footer text-muted">

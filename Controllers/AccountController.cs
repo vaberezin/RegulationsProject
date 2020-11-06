@@ -11,15 +11,18 @@ using Regulations.Models.DatabaseContexts;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.Localization;
 
 namespace Regulations.Controllers
 {    
-    public class AccountController : Controller
+    public class AccountController : Controller 
     {
+        private readonly IStringLocalizer<AccountController> localizer;
         private RegulationContext db;
-        public AccountController(RegulationContext context)
+        public AccountController(RegulationContext context, IStringLocalizer<AccountController> _localizer)
         {
             db = context;
+            localizer = _localizer;
         }
         
         [HttpGet]
@@ -38,8 +41,9 @@ namespace Regulations.Controllers
                     await Authenticate(user);
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("","Неправильный логин и(или) пароль.");
-                
+                ModelState.AddModelError("",localizer["strModelError"]);
+
+
             }
             return View(model);
         }
@@ -70,7 +74,7 @@ namespace Regulations.Controllers
                 }
                     else
                     {
-                        ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                        ModelState.AddModelError("", localizer["strModelError"]);
                     }
                     
                 }

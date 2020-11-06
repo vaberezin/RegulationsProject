@@ -3,32 +3,40 @@
     ViewData["Title"] = "Вход";
     Layout = "_ValidationRegLayout";
 }
+@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer localizer;
 
-
+<h2 class="text-black-50">@localizer["strHeaderLogin"]</h2>
+<div>
     <form action="get">
-        <button class="btn-danger" type="submit" asp-action="Logout" asp-controller="Account">Выйти</button>
+        <button class="btn btn-outline-danger" type="submit" asp-action="Logout"
+            asp-controller="Account">@localizer["strSubmitLogout"]</button>
     </form>
+    <a asp-action="Register" asp-controller="Account" role="button"
+        class="btn btn-outline-secondary">@localizer["strRegistration"]</a>
+</div>
+<div class=".float-left">
+    <table class="table table-hover">
 
-    <h2>Страница входа на сайт</h2>
+        <form asp-action="Login" asp-controller="Account" method="post" asp-antiforgery="true">
+            <tr class="form-group">
+                <td><label asp-for="Email">@localizer["strLoginEmail"]</label></td>
+                <td><input type="text" asp-for="Email" class="form-control" /></td>
+                <td><span asp-validation-for="Email"></span></td>
+            </tr>
+            <tr class="form-group">
+                <td><label asp-for="Password">@localizer["strLoginPassword"]</label></td>
+                <td><input type="password" asp-for="Password" class="form-control" /></td>
+                <td><span asp-validation-for="Password"></span></td>
+            </tr>
+            <tr class="form-group">
+                <td>
+                    <input class="btn btn-outline-primary" type="submit" value="@localizer["strSubmitLogin"]" />
+                </td>
 
-    <a asp-action="Register" asp-controller="Account">Регистрация</a>
-    <form asp-action="Login" asp-controller="Account" method="post" asp-antiforgery="true
-          ">
-        <div class="validation" asp-validation-summary="ModelOnly"></div>
-        <div>
-            <div class="form-group">
-                <label asp-for="Email">Введите Ваш E-mail</label>
-                <input type="text" asp-for="Email" />
-                <span asp-validation-for="Email"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password">Введите Ваш пароль</label>
-                <input type="password" asp-for="Password" />
-                <span asp-validation-for="Password"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Войти" class="btn btn-outline-dark" />
-            </div>
-        </div>
-    </form>
-    
+            </tr>
+        </form>
+
+
+    </table>
+</div>

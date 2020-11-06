@@ -11,18 +11,21 @@ using Regulations.Models.DatabaseContexts;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 
 namespace Regulations.Controllers
 {   
     [Authorize (Roles = "admin, user") ]
     public class RegulationsController : Controller
     {
+        private readonly IStringLocalizer<AccountController> localizer;
         RegulationContext db;
         
         
-        public RegulationsController(RegulationContext context)
+        public RegulationsController(RegulationContext context, IStringLocalizer<AccountController> _localizer)
         {
             db = context;
+            localizer = _localizer;
         }
         
         
@@ -95,7 +98,7 @@ namespace Regulations.Controllers
             Regulation regToDelete = await db.Regulations.FindAsync(id);
             db.Regulations.Remove(regToDelete);
             await db.SaveChangesAsync();
-            return Content("Данные успешно удалены.");
+            return Content(localizer["strDataDeletedSuccessfully"]); //doest work right. why it doesnt get the value by key?
             }
             else
             {

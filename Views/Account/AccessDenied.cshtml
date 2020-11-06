@@ -2,6 +2,8 @@
 @{    
     Layout = null;
 }
+@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer localizer;
 <!DOCTYPE html>
 
 <html>
@@ -9,14 +11,14 @@
     <meta name="viewport" content="text/html" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <title>Access Denied</title>
+    <title>@localizer["strAccessDenied"]</title>
 </head>
 <body>
-    <h2>У Вас недостаточно прав доступа!</h2>
-    <h2>Обратитесь к администратору.</h2>
+    <h2>@localizer["strNotEnoughRights"]</h2>
+    <h2>@localizer["strWriteAdmin"]</h2>
 
     <div class="img403">
-        <img src="/image/accessDenied.jpg" alt="Picture">
+        <img src="/image/accessDenied.jpg" alt="Picture" class="rounded mx-auto d-block">
     </div>
     
 </body>

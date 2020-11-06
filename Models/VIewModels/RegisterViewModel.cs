@@ -8,13 +8,13 @@ namespace Regulations.Models.ViewModels
 {
     public class RegisterViewModel
     {
-        [Required (ErrorMessage = "Не указан e-mail.")]
+        [Required (ErrorMessage = "TypeEmail")]
         public string Email { get; set; }
-        [Required (ErrorMessage = "Не указан пароль.")]
+        [Required (ErrorMessage = "TypePassword")]
         [DataType (DataType.Password)]
         public string Password { get; set; }
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Пароль введен неверно.")]
+        [Compare("Password", ErrorMessage = "WrongPassword")]
         public string ConfirmPassword { get; set; }
         
 

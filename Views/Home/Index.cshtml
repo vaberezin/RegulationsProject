@@ -1,40 +1,39 @@
-﻿@Model IEnumerable<Regulations.Models.Regulation>
+﻿@model IEnumerable<Regulations.Models.Regulation>
     @{
-        ViewData["Title"] = "Список нормативной документации";
+        ViewData["Title"] = localizer["strHeader"];
         Layout = "_Layout";
     }
-    
-        <h3>Список нормативной документации</h3>
-        <table>
+    @using Microsoft.AspNetCore.Mvc.Localization;
+    @inject IViewLocalizer localizer;
+
+    <h3 class="text-black-50">@localizer["strTitle"]</h3>
+    <table class="table table-hover table-responsive">
+        <tr>
+            <td>
+                <form action="get">
+                    <button id="Logout" class="btn btn-block btn-outline-danger" type="submit" asp-action="Logout" asp-controller="Account">@localizer["strLogOut"]</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <th>@localizer["strName"]</th>
+            <th>@localizer["strDate"]</th>
+        </tr>
+        @foreach (var reg in Model)
+        {
             <tr>
-                <td>
-                    <form action="get">
-                        <button class="btn-danger" type="submit" asp-action="Logout" asp-controller="Account">Выйти</button>
-                    </form>
-                </td>
-                
+                <td>@reg.ShortName</td>
+                <td>@reg.Added</td>
+                <td><a href="@reg.Link" role="button" class="btn btn-block btn-link">@localizer["strLink"]</a></td>
+                <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id" role="button" class="btn btn-block btn-secondary" >@localizer["strChangeReg"]</a></td>
+                <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id" role="button" class="btn btn-block btn-danger">@localizer["strDelete"]</a></td>
             </tr>
-            <tr>
-                <td>Название</td>
-                <td>Дата</td>
-            </tr>
-            @foreach (var reg in Model)
-            {
-                <tr>
-                    <td>@reg.ShortName</td>
-                    <td>@reg.Added</td>
-                    <td><a href="@reg.Link">Ссылка</a></td>
-                    <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Изменение записи</a></td>
-                    <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id">Удаление записи</a></td>
-                    <td></td>
-                </tr>
-            }
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html">Добавление новых записей</a></td>
-            </tr>
-        </table>
-        
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html" role="button" class="btn btn-block btn-success">@localizer["strAddReg"]</a></td>
+        </tr>
+    </table>
