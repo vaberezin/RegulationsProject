@@ -7,38 +7,57 @@
 @inject IViewLocalizer localizer;
 
 
-<h3 class="text-black-50">@localizer["Edit_Header"]</h3>
-<table class="table table-hover table-responsive table-borderless">
-    <form asp-action="UpdateRegulation" asp-controller="Regulations" asp-antiforgery="true" method="post">
-        <input type="hidden" asp-for="Id" value="@Model.Id" />
-        <input type="hidden" asp-for="Added" value="@DateTime.Now" />
-        <input type="hidden" asp-for="User.Email" value="@User.Identity.Name" />
-        <tr class="form-group">
-            <td><label>@localizer["Edit_ShortName"]</label></td>
-            <td><input type="text" asp-for="ShortName" value="@Model.ShortName" class="form-control" /></td>
-            <td><span asp-validation-for="ShortName" class="text-md-center"></span></td>
-        </tr>
-        <tr>
-            <td><label>@localizer["Edit_FullName"]</label></td>
-            <td><input type="text" asp-for="FullName" value="@Model.FullName" class="form-control" /></td>
-            <td><span asp-validation-for="FullName" class="text-md-center"></span></td>
-        </tr>
-        <tr>
-            <td><label>@localizer["Edit_Link"]</label></td>
-            <td><input type="text" asp-for="Link" value="@Model.Link" class="form-control" /></td>
-            <td><span asp-validation-for="Link" class="text-md-center"></span></td>
-        </tr>
-        <tr>
-            <td><label>@localizer["Edit_UserId"]</label></td>
-            <td><input type="number" asp-for="UserId" value="" class="form-control" /></td>
-            <td><span asp-validation-for="UserId" class="text-md-center"></span></td>
-        </tr>
-        <div class="align-items-center">
-            <input type="submit" value=@localizer["Edit_Submit"] class="btn btn-primary" />
-        </div>
-    </form>
-</table>
+<div class="container">
 
-<div>
+    <div class="row justify-content-center">
+        <h3 class="text-center text-black-50">@localizer["Edit_Header"]</h3>
+    </div>
+    <div id="NavDiv" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/JRW_kinki-R.svg/480px-JRW_kinki-R.svg.png"
+                width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            RegulationsApp
+        </a>
+        <a class="nav-link" asp-action="Index" asp-controller="Home">Home</a>
+        <a class="nav-link" href="https://github.com/vaberezin">GitHub</a>
+        <a class="nav-link" href="https://career.habr.com/berezfox/print.pdf">CV-pdf</a>
+        <a class="nav-link" href="https://career.habr.com/berezfox">Career.Habr-profile</a>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10 justify-content-center">
+            <table class="table table-hover table-responsive table-borderless">
+                <form asp-action="UpdateRegulation" asp-controller="Regulations" asp-antiforgery="true" method="post">
+                    <input type="hidden" asp-for="Id" value="@Model.Id" />
+                    <input type="hidden" asp-for="Added" value="@DateTime.Now" />
+                    <input type="hidden" asp-for="User.Email" value="@User.Identity.Name" />
+                    <tr class="form-group">
+                        <td><label>@localizer["Edit_ShortName"]</label></td>
+                        <td><input type="text" asp-for="ShortName" value="@Model.ShortName" class="form-control" /></td>
+                        <td><span asp-validation-for="ShortName" class="text-md-center"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label>@localizer["Edit_FullName"]</label></td>
+                        <td><input type="text" asp-for="FullName" value="@Model.FullName" class="form-control" /></td>
+                        <td><span asp-validation-for="FullName" class="text-md-center"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label>@localizer["Edit_Link"]</label></td>
+                        <td><input type="text" asp-for="Link" value="@Model.Link" class="form-control" /></td>
+                        <td><span asp-validation-for="Link" class="text-md-center"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label>@localizer["Edit_UserId"]</label></td>
+                        <td><input type="number" asp-for="UserId" value="" class="form-control" /></td>
+                        <td><span asp-validation-for="UserId" class="text-md-center"></span></td>
+                    </tr>
+                    <div class="align-items-center">
+                        <td></td>
+                        <td></td>
+                        <td><input type="submit" value=@localizer["Edit_Submit"] class="btn btn-primary" /></td>                        
+                    </div>
+                </form>
+            </table>
+        </div>
+
+    </div>
 </div>
-</tr>
