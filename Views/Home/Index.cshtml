@@ -1,42 +1,68 @@
 ﻿@model IEnumerable<Regulations.Models.Regulation>
-    @{
-        ViewData["Title"] = localizer["strHeader"];
-        Layout = "_Layout";
-    }
-    @using Microsoft.AspNetCore.Mvc.Localization;
-    @inject IViewLocalizer localizer;
+@{
+    ViewData["Title"] = localizer["strHeader"];
+    Layout = "_Layout";
+}
+@using Microsoft.AspNetCore.Mvc.Localization;
+@inject IViewLocalizer localizer;
 
-    <div class="container-fluid">
-        
-    </div>   
-    <h3 class="text-black-50">@localizer["strTitle"]</h3>
-    <table class="table table-hover table-responsive">
-        <tr>
-            <td>
-                <form action="get">
-                    <button id="Logout" class="btn btn-block btn-outline-danger" type="submit" asp-action="Logout" asp-controller="Account">@localizer["strLogOut"]</button>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <th>@localizer["strName"]</th>
-            <th>@localizer["strDate"]</th>
-        </tr>
-        @foreach (var reg in Model)
-        {
-            <tr>
-                <td>@reg.ShortName</td>
-                <td>@reg.Added</td>
-                <td><a href="@reg.Link" role="button" class="btn btn-block btn-link">@localizer["strLink"]</a></td>
-                <td><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id" role="button" class="btn btn-block btn-secondary" >@localizer["strChangeReg"]</a></td>
-                <td><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id" role="button" class="btn btn-block btn-danger">@localizer["strDelete"]</a></td>
-            </tr>
-        }
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html" role="button" class="btn btn-block btn-success">@localizer["strAddReg"]</a></td>
-        </tr>
-    </table>
+<div class="container">
+    <div class="row justify-content-center">
+        <h3 class="text-black-50">@localizer["strTitle"]</h3>
+    </div>
+    <div id="NavDiv" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/JRW_kinki-R.svg/480px-JRW_kinki-R.svg.png"
+                width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            RegulationsApp
+        </a>
+        <a class="nav-link" asp-action="Index" asp-controller="Home">Home</a>
+        <a class="nav-link" href="https://github.com/vaberezin">GitHub</a>
+        <a class="nav-link" href="https://career.habr.com/berezfox/print.pdf">CV-pdf</a>
+        <a class="nav-link" href="https://career.habr.com/berezfox">Career.Habr-profile</a>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-10 justify-content-center">
+            <table class="table table-hover table-responsive ">
+                <tr>
+                    <td>
+                        <form action="get">
+                            <button id="Logout" class="btn btn-block btn-outline-danger" type="submit"
+                                asp-action="Logout" asp-controller="Account">@localizer["strLogOut"]</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="">@localizer["strName"]</th>
+                    <th>@localizer["strDate"]</th>
+                    <th>@localizer["strHeaderLink"]</th>
+                </tr>
+                @foreach (var reg in Model)
+                {
+                    <tr class="text-center">
+                        <td class="text-center align-text-bottom">@reg.ShortName</td>
+                        <td class="text-center align-text-bottom">@reg.Added</td>
+                        <td class="text-center align-text-bottom"><a href="@reg.Link" role="button" class="btn btn-block btn-link">@localizer["strLink"]</a></td>
+                        <td class="text-center align-text-bottom"><a asp-action="UpdateRegulation" asp-controller="Regulations" asp-route-id="@reg.Id"
+                                role="button" class="btn btn-block btn-secondary">@localizer["strChangeReg"]</a></td>
+                        <td class="text-center align-text-bottom"><a asp-action="DeleteRegulation" asp-controller="Regulations" asp-route-id="@reg.Id"
+                                role="button" class="btn btn-block btn-danger">@localizer["strDelete"]</a></td>
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a href="~/Regulations/AddRegulation/" name="AddRegLink" type="text/html" role="button"
+                            class="btn btn-block btn-success">@localizer["strAddReg"]</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+</div>
+@* -----------------------------------------------------------------------------------------------------------
+    MARKUPLINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*@

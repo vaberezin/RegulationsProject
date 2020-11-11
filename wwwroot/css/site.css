@@ -26,9 +26,7 @@ a {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-  font-size: 14px;
-}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -108,4 +106,15 @@ input[type="checkbox"].input-validation-error {
   justify-items: center;
   align-content: center;
   align-self: center;
+}
+
+body{
+  
+  background-image: url(../background/site-background-filling-30.png);  
+  background-repeat: repeat;
+  
+}
+th{
+  justify-content: center;
+  text-align: center;    
 }
