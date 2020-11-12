@@ -51,15 +51,7 @@ button.accept-policy {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
 .footer {
   position: absolute;
   bottom: 0;
@@ -92,10 +84,7 @@ input[type="checkbox"].input-validation-error {
   display: none;
 }
 
-.img403 {
-  display: flex;
-  position: absolute;
-  align-items: center;  
+.img403 {  
   border: 3px solid;
   border-color: #9a09ee;
 }
@@ -108,13 +97,17 @@ input[type="checkbox"].input-validation-error {
   align-self: center;
 }
 
-body{
-  
-  background-image: url(../background/site-background-filling-30.png);  
-  background-repeat: repeat;
-  
-}
+
 th{
   justify-content: center;
   text-align: center;    
+}
+
+
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-image: url(../background/site-background-filling-30.png);  
+  background-repeat: repeat;
 }

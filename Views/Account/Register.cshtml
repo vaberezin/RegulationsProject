@@ -6,37 +6,58 @@
 @using Microsoft.AspNetCore.Mvc.Localization;
 @inject IViewLocalizer localizer;
 
-<div>
-    <h2 class="text-black-50">@localizer["strHeaderRegister"]</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 class="text-black-50">@localizer["strHeaderRegister"]</h2>
+    </div>
+    <div id="NavDiv" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/JRW_kinki-R.svg/480px-JRW_kinki-R.svg.png"
+                width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            RegulationsApp
+        </a>
+        <a class="nav-link" asp-action="Index" asp-controller="Home">Home</a>
+        <a class="nav-link" href="https://github.com/vaberezin">GitHub</a>
+        <a class="nav-link" href="https://career.habr.com/berezfox/print.pdf">CV-pdf</a>
+        <a class="nav-link" href="https://career.habr.com/berezfox">Career.Habr-profile</a>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-10 justify-content-center">
+            <table class="table table-hover table-responsive table-borderless">
+                <form asp-action="Register" asp-controller="Account" method="post" asp-antiforgery="true">
+                    <div class="validation" asp-validation-summary="ModelOnly"></div>
+                    <div>
+                        <tr class="form-group">
+                            <td><label asp-for="Email">@localizer["strRegisterEmail"]</label></td>
+                            <td><input type="email" asp-for="Email" class="form-control" /></td>
+                            <td><span asp-validation-for="Email"></span></td>
 
-    <table class="table table-hover">
-        <form asp-action="Register" asp-controller="Account" method="post" asp-antiforgery="true">
-        <div class="validation" asp-validation-summary="ModelOnly"></div>
-        <div>
-            <tr class="form-group">
-                <td><label asp-for="Email">@localizer["strRegisterEmail"]</label></td>
-                <td><input type="email" asp-for="Email" class="form-control"/></td>
-                <td><span asp-validation-for="Email"></span></td>
-                
-            </tr>
-            <tr class="form-group">
-                <td><label asp-for="Password">@localizer["strRegisterPassword"]</label></td>
-                <td><input type="password" asp-for="Password" class="form-control"/></td>
-                <td><span asp-validation-for="Password"></span></td>
-                
-            </tr>
-            <tr class="form-group">
-                <td><label asp-for="ConfirmPassword">@localizer["strConfirmRegisterPassword"]</label></td>
-                <td><input type="password" asp-for="ConfirmPassword" class="form-control"/></td>
-                <td><span asp-validation-for="ConfirmPassword"></span></td>                
-            </tr>
-            <tr class="form-group">
-                <input type="submit" value="@localizer["strSubmitRegistration"]" class="btn btn-outline-primary" />
-            </tr>
+                        </tr>
+                        <tr class="form-group">
+                            <td><label asp-for="Password">@localizer["strRegisterPassword"]</label></td>
+                            <td><input type="password" asp-for="Password" class="form-control" /></td>
+                            <td><span asp-validation-for="Password"></span></td>
+
+                        </tr>
+                        <tr class="form-group">
+                            <td><label asp-for="ConfirmPassword">@localizer["strConfirmRegisterPassword"]</label></td>
+                            <td><input type="password" asp-for="ConfirmPassword" class="form-control" /></td>
+                            <td><span asp-validation-for="ConfirmPassword"></span></td>
+                        </tr>
+                        <tr class="form-group">
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="@localizer["strSubmitRegistration"]" class="btn btn-outline-primary" />
+                            </td>
+                            
+                        </tr>
+                    </div>
+                </form>
+            </table>
         </div>
-    </form>
-    </table>
+    </div>
 </div>
-    
-    
-   
+
+@* -------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!------------------------ *@
