@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/piep81lkt09vsqe2/branch/develop?svg=true)](https://ci.appveyor.com/project/vaberezin/regulationsproject/branch/develop)
+
 # RegulationsProject
 
 Pet project on ASP.NET technology.
@@ -18,6 +20,3 @@ Features implemented:
 -Authentication
 -Redirection
 -DI injection
-
-
-https://ci.appveyor.com/api/projects/status/piep81lkt09vsqe2/branch/develop?svg=true
