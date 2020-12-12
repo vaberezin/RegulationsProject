@@ -20,4 +20,4 @@ Features implemented:
 -DI injection
 
 
-https://ci.appveyor.com/api/projects/status/github/vaberezin/RegulationsProject?branch=develop&svg=true
+[![Build status]https://ci.appveyor.com/api/projects/status/github/vaberezin/RegulationsProject?branch=develop&svg=true
